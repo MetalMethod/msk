@@ -1,6 +1,6 @@
-.navbar-right{
+/* .navbar-right{
     margin-left: 30px
-}
+} */
 
 #addArtistButton{
     /*margin-left: 30px*/
@@ -8,7 +8,7 @@
 }
 
 .nav.navbar-nav{
-    font-size: 15px;
+    font-size: 10px;
 }
 
 .nav-item{
@@ -23,4 +23,8 @@
     #searchForm {
         display: none
     }
+}
+
+#userInfo{
+    margin-left: 15px;
 }
