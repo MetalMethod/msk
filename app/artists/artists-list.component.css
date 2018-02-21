@@ -1,0 +1,17 @@
+.artistBox{
+    background-color: rgba(204, 204, 204, 0.165);
+    padding: 20px 15px 10px 15px;
+}
+
+.artistBox:hover{
+    background-color: rgba(204, 204, 204, 0.344);
+    cursor: default;
+}
+
+.description{
+    margin-bottom: 10px;
+}
+
+button{
+    margin-top:10px;
+}

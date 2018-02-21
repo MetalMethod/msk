@@ -1,0 +1,26 @@
+.navbar-right{
+    margin-left: 30px
+}
+
+#addArtistButton{
+    /*margin-left: 30px*/
+    width: 150px;
+}
+
+.nav.navbar-nav{
+    font-size: 15px;
+}
+
+.nav-item{
+    margin-left: 15px;
+}
+
+#searchForm {
+    margin-right: 100px;
+}
+
+@media(max-width: 1200px) {
+    #searchForm {
+        display: none
+    }
+}
