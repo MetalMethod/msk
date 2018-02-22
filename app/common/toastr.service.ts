@@ -4,6 +4,15 @@ declare let toastr:any;
 
 @Injectable()
 export class ToastrService implements Injectable{
+
+    constructor(){
+        this.init()
+    }
+
+    init(){
+        toastr.options.progressBar = true;
+        toastr.options.closeButton = true;
+    }
     
     success(message: string, tittle?:string){
         toastr.success(message, tittle);
