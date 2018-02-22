@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser'
 
 //Application specific components
 import { MskAppComponent } from './msk-app.component'
-import { ArtistsListComponent } from './artists/artists-list.component'
-import { ArtistThumbnailComponent } from './artists/artist-thumbnail.component'
+import { ArtistsListComponent } from './artists/artists-list/artists-list.component'
+import { ArtistThumbnailComponent } from './artists/artist-thumbnail/artist-thumbnail.component'
 import { NavBarComponent } from './nav/navbar.component';
 
 @NgModule({

@@ -5,7 +5,7 @@
         <span class="text-primary">genre: </span>
         <span class="badge badge-secondary">{{artist.genre}}</span>        
     </div>
-    <div><span class="text-primary">country: </span> {{artist.country}}</div>
+    <div *ngIf="artist?.description" class="description">{{ (artist.description.length>185)? (artist.description | slice:0:185)+'   .  .  .   ':(artist.description) }}</div>
     
-    <div class="description">{{ (artist.description.length>185)? (artist.description | slice:0:185)+'   .  .  .   ':(artist.description) }}</div>
+    <div *ngIf="artist?.country" class="country"><span class="text-primary">country: </span> {{artist.country}}</div>
 </div>

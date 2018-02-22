@@ -2,8 +2,8 @@ import { Component } from '@angular/core'
 
 @Component({
     selector: 'artists-list',
-    templateUrl: 'app/artists/artists-list.component.html',
-    styleUrls: ['app/artists/artists-list.component.css']
+    templateUrl: 'app/artists/artists-list/artists-list.component.html',
+    styleUrls: ['app/artists/artists-list/artists-list.component.css']
 })
 
 export class ArtistsListComponent{
@@ -32,7 +32,6 @@ export class ArtistsListComponent{
             name: 'Name Twott3te rtert eetert er tertert erterterte rwwueiwerwerwerweriwerwer',
             genre: 'Some genre',
             description: 'Coinciding with the release of Star Wars Episode 18, this talk will show how to use directives in your Angular 4 development',
-            country: 'Portugal',
             user: 'user1',
             imageUrl: '/app/assets/images/angularconnect-shield.png',
             songs: {
@@ -224,6 +223,23 @@ export class ArtistsListComponent{
                 link1: 'www.google.com',
                 link2: 'www.wikipedia.org'
             },
+        },
+        {
+            id: 13,
+            name: 'Name Thirteen',
+            genre: 'Some genre',
+            country: 'Portugal',
+            user: 'user1',
+            imageUrl: '/app/assets/images/angularconnect-shield.png',
+            songs: {
+                song1: 'Song1 name',
+                song2: 'Song2 name',
+                song3: 'Song3 name',
+            },
+            links: {
+                link1: 'www.google.com',
+                link2: 'www.wikipedia.org'
+            }
         }
         
     ]
