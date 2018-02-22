@@ -1,6 +1,8 @@
 .artistBox{
     background-color: rgba(204, 204, 204, 0.165);
     padding: 20px 15px 10px 15px;
+    margin-bottom: 28px;
+    /* height: 160px; */
 }
 
 .artistBox:hover{
@@ -9,7 +11,14 @@
 }
 
 .description{
-    margin-bottom: 10px;
+    margin: 10px 0px 10px 0px;
+    height: 50px;
+    
+    font-size: 0.8em;
+}
+
+.text-primary{
+    margin: 10px 0px 10px 0;
 }
 
 button{

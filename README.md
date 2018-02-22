@@ -1,12 +1,10 @@
 m.sk
 ========================
 
-description:  **Angular app learning project**.
+**description:**  A personal project with the goal of learning to build Angular 2+ apps.
 
 Usage
 ---------------
-dependencies: node 6.3.0+
-
 To start the server:
 
 ```

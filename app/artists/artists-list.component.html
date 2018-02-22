@@ -1,6 +1,9 @@
 <div>
     <!-- <h1><strong>m.sk</strong></h1> -->
-    <!-- <h1><strong>name</strong></h1>-->
     <hr/> 
-    <artist-thumbnail [artist]="artist1"></artist-thumbnail>
+    <div class="row">
+        <div  class="col-md-4" *ngFor="let artist of artists">
+            <artist-thumbnail [artist]="artist"></artist-thumbnail>
+        </div>
+    </div>
 </div>

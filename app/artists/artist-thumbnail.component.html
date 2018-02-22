@@ -1,10 +1,11 @@
 <div class="artistBox well hoverwell thumbnail">
-    <h6>{{artist.name}}</h6>
-    <div><span class="description">{{artist.description}}</span></div>
-    <div><span class="text-primary">country: </span> {{artist.country}}</div>
+    <h6>{{ (artist.name.length>50)? (artist.name | slice:0:50)+'   .  .  .   ':(artist.name) }}</h6>
+    
     <div>
         <span class="text-primary">genre: </span>
         <span class="badge badge-secondary">{{artist.genre}}</span>        
     </div>
-   
+    <div><span class="text-primary">country: </span> {{artist.country}}</div>
+    
+    <div class="description">{{ (artist.description.length>185)? (artist.description | slice:0:185)+'   .  .  .   ':(artist.description) }}</div>
 </div>
