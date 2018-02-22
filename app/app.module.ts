@@ -8,12 +8,13 @@ import { ArtistsListComponent } from './artists/artists-list/artists-list.compon
 import { ArtistThumbnailComponent } from './artists/artist-thumbnail/artist-thumbnail.component'
 import { NavBarComponent } from './nav/navbar.component';
 import { ArtistService } from './artists/shared/artist.service';
+import { ToastrService } from './common/toastr.service';
 
 
 @NgModule({
     imports: [BrowserModule],
     declarations: [MskAppComponent, ArtistsListComponent, ArtistThumbnailComponent, NavBarComponent],
-    providers: [ArtistService],
+    providers: [ArtistService,  ToastrService],
     bootstrap: [MskAppComponent]
 })
 export class AppModule{

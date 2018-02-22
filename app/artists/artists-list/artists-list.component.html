@@ -3,7 +3,7 @@
     <hr/> 
     <div class="row">
         <div  class="col-md-4" *ngFor="let artist of artists">
-            <artist-thumbnail [artist]="artist"></artist-thumbnail>
+            <artist-thumbnail (click)="handleThumbnailClick(artist.name)" [artist]="artist"></artist-thumbnail>
         </div>
     </div>
 </div>
