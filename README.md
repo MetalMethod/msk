@@ -1,7 +1,7 @@
 m.sk
 ========================
 
-**description:**  A personal project with the goal of learning to build Angular 2+ apps.
+**description:**  A personal project with the goal of learning to build Angular 4+ apps, using the Angular CLI.
 
 Usage
 ---------------

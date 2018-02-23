@@ -1,4 +1,4 @@
-<div class="artistBox well hoverwell thumbnail">
+<div [routerLink]="['/artists', artist.id]" class="artistBox well hoverwell thumbnail">
     <h6>{{ (artist.name.length>50)? (artist.name | slice:0:50)+'   .  .  .   ':(artist.name) }}</h6>
     
     <div>
