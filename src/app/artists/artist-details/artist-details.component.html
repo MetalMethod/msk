@@ -2,28 +2,38 @@
     <img [src]="artist?.imageUrl" [alt]="artist?.name" class="artist-image">
   
     <div class="row">
-      <div class="col-md-11">
+      <div class="col-md-12">
         <h2>{{artist?.name}} </h2>
       </div>
     </div>
   
     <div class="row">
       <div class="col-md-6">
+            <strong>Description:</strong><br /> 
+            {{artist?.description}}<br />
+      </div>
+      <div class="col-md-6">
         <div><strong>Genre:</strong> {{artist?.genre}}</div>
         <div><strong>Country:</strong> {{artist?.country}}</div>
       </div>
-      <div class="col-md-6">
-            <strong>Description:</strong><br />
-            {{artist?.description}}<br />
-      </div>
-      <div class="row">
-            <div class="col-md-6">
-                <strong>Links:</strong> link1:  {{artist?.links.link1}}
-            </div>
-            <div class="col-md-6">
-                <strong>Songs:</strong> song1:  {{artist?.songs.song1}}
-            </div>
-      </div>
     </div>
+
+      <div class="row">
+            <div class="col-md-12">
+                <div class="linksBlock"><strong>Links:</strong> link1:  {{artist?.links.link1}}</div>
+            </div>
+      </div>
+
+      <!-- <div class="row">
+          <div class="col-md-6">
+            </div>
+        <div class="col-md-6">
+          <div><strong>Songs:</strong> song1:  {{artist?.songs.song1}}</div>        
+        </div>
+      </div> -->
+
+
+      
+    
   </div>
   

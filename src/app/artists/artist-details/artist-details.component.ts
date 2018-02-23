@@ -14,6 +14,6 @@ export class ArtistDetailsComponent implements OnInit{
     }
 
     ngOnInit(){
-        this.artist = this.artistService.getArtist(1)
+        this.artist = this.artistService.getArtist(9)
     }
 }
