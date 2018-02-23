@@ -1,4 +1,5 @@
 
+
 //imports of internal dependencies
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser' 
@@ -10,6 +11,7 @@ import { ArtistsListComponent } from './artists/artists-list/artists-list.compon
 import { ArtistThumbnailComponent } from './artists/artist-thumbnail/artist-thumbnail.component'
 import { ArtistDetailsComponent } from './artists/artist-details/artist-details.component';
 import { ArtistService } from './artists/shared/artist.service';
+import { ArtistAddComponent } from './artists/artist-add/artist-add.component';
 
 import { NavBarComponent } from './nav/navbar.component';
 import { ToastrService } from './common/toastr.service';
@@ -29,7 +31,8 @@ import { RouterModule, Routes } from '@angular/router';
         ArtistsListComponent, 
         ArtistThumbnailComponent, 
         ArtistDetailsComponent, 
-        NavBarComponent
+        NavBarComponent,
+        ArtistAddComponent
     ],
     providers: [
         ArtistService
