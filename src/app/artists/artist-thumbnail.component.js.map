@@ -1,0 +1,1 @@
+{"version":3,"file":"artist-thumbnail.component.js","sourceRoot":"","sources":["artist-thumbnail.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,sCAAuE;AAOvE;IAAA;IAGC,CAAC;IAAD,+BAAC;AAAD,CAAC,AAHF,IAGE;AAFW;IAAR,YAAK,EAAE;;wDAAY;AADxB;IALC,gBAAS,CAAC;QACP,QAAQ,EAAE,kBAAkB;QAC5B,SAAS,EAAE,CAAC,wCAAwC,CAAC;QACrD,WAAW,EAAE,6CAA6C;KAC7D,CAAC;;4BAIA;AAHW,mCAAA,wBAAwB,CAAA"}
