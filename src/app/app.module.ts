@@ -1,3 +1,4 @@
+import { ArtistRouteActivatorService } from './artists/shared/artist-route-activator.service';
 
 
 //imports of internal dependencies
@@ -18,6 +19,7 @@ import { ToastrService } from './common/toastr.service';
 
 import { appRoutes } from './routes';
 import { RouterModule, Routes } from '@angular/router';
+import { Error404Component } from './errors/404.component';
 
 
 @NgModule({
@@ -32,10 +34,12 @@ import { RouterModule, Routes } from '@angular/router';
         ArtistThumbnailComponent, 
         ArtistDetailsComponent, 
         NavBarComponent,
-        ArtistAddComponent
+        ArtistAddComponent,
+        Error404Component
     ],
     providers: [
-        ArtistService
+        ArtistService,
+        ArtistRouteActivatorService
         // ,  
         // ToastrService
     ],
