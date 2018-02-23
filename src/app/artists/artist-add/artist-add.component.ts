@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 
 export class ArtistAddComponent{
+
+    isDirty:boolean = true
+
     constructor(private router:Router){
 
     }

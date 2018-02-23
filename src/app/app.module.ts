@@ -39,12 +39,19 @@ import { Error404Component } from './errors/404.component';
     ],
     providers: [
         ArtistService,
-        ArtistRouteActivatorService
+        ArtistRouteActivatorService,
+        {provide: 'canDeactivateAddArtist', useValue: checkDirtyState}
         // ,  
         // ToastrService
     ],
     bootstrap: [MskAppComponent]
 })
 export class AppModule{
+    
+}
 
+function checkDirtyState(component:ArtistAddComponent){
+    if(component.isDirty)
+        return window.confirm('You have not added this artist yet, do you really want to cancel?')
+    return true
 }

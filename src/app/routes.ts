@@ -8,7 +8,7 @@ import { ArtistRouteActivatorService } from './artists/shared/artist-route-activ
 
 
 export const appRoutes:Routes = [
-    { path: 'artists/add', component: ArtistAddComponent },
+    { path: 'artists/add', component: ArtistAddComponent, canDeactivate: ['canDeactivateAddArtist'] },
     { path: '', redirectTo: '/artists', pathMatch: 'full'},
     { path: 'artists', component: ArtistsListComponent },
     { path: 'artists/:id', component: ArtistDetailsComponent, canActivate: [ArtistRouteActivatorService] },
