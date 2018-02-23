@@ -24,7 +24,7 @@ const ARTISTS = [
         description: 'Being a developer in 2037 is about more than just writing bug-free code. You also have to look the part.',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -41,7 +41,7 @@ const ARTISTS = [
         genre: 'Some genre',
         description: 'Coinciding with the release of Star Wars Episode 18, this talk will show how to use directives in your Angular 4 development',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -59,7 +59,7 @@ const ARTISTS = [
         description: 'Sometimes our internal biases can make it difficult forthese well-designed coworkers to really feel at home coding alongside us.',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -77,7 +77,7 @@ const ARTISTS = [
         description: 'Angular has been used in most of the major peace brokering that has happened in the last decade',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -95,7 +95,7 @@ const ARTISTS = [
         description: 'We all know that Angular is used in most waiter-bots and coke vending machines, but did you know that was also used to write the core engine in the majority of voting machines? ',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -113,7 +113,7 @@ const ARTISTS = [
         description: 'Let\'s take a look at some of the stranger pieces of Angular 4, including neural net nets, Android in Androids, and using pipes with actual pipes.',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -131,7 +131,7 @@ const ARTISTS = [
         description: 'Being a developer in 2037 is about more than just writing bug-free code. You also have to look the part.',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -149,7 +149,7 @@ const ARTISTS = [
         description: 'Coinciding with the release of Star Wars Episode 18, this talk will show how to use directives in your Angular 4 development',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -167,7 +167,7 @@ const ARTISTS = [
         description: 'Yes, we all work with cyborgs and androids and Martians, but we probably don\'t realize that sometimes our internal biases can make it difficult forthese well-designed coworkers to really feel at home coding alongside us.',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -185,7 +185,7 @@ const ARTISTS = [
         description: 'Angular has been used in most of the major peace brokering that has happened in the last decade',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -203,7 +203,7 @@ const ARTISTS = [
         description: 'No, this talk isn\'t about slot machines. ',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -221,7 +221,7 @@ const ARTISTS = [
         description: 'Let\'s take a look at some of the stranger pieces of Angular 4, including neural net nets, Android in Androids, and using pipes with actual pipes.',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',
@@ -238,7 +238,7 @@ const ARTISTS = [
         genre: 'Some genre',
         country: 'Portugal',
         user: 'user1',
-        imageUrl: '/app/assets/images/angularconnect-shield.png',
+        imageUrl: '/assets/images/angularconnect-shield.png',
         songs: {
             song1: 'Song1 name',
             song2: 'Song2 name',

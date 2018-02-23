@@ -20,10 +20,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
     imports: [
-        BrowserModule
-        //,
-        //RouterModule.forRoot(appRoutes, {enableTracing: true})
-        //RouterModule.forRoot(appRoutes)
+        BrowserModule,
+        // RouterModule.forRoot(appRoutes, {enableTracing: true})
+        RouterModule.forRoot(appRoutes)
         ],
     declarations: [
         MskAppComponent, 
