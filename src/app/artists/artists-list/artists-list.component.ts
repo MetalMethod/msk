@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ArtistService } from './../shared/artist.service';
 //import { ToastrService } from './../../common/toastr.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'artists-list',
@@ -9,17 +10,18 @@ import { ArtistService } from './../shared/artist.service';
 })
 
 export class ArtistsListComponent implements OnInit{
-    artists:any[]
+    artists:any
 
     //injecting the service
     // constructor( private artistService: ArtistService, private  toastrService: ToastrService){
-    constructor( private artistService: ArtistService){
+    constructor( private artistService: ArtistService, private route:ActivatedRoute){
 
     }
     
-    //event callend when the component is first loaded
     ngOnInit(){
-        this.artists = this.artistService.getArtists()
+        //event callend when the component is first loaded
+        //this.artists = this.artistService.getArtists().subscribe(artists => {this.artists = artists})
+        this.artists = this.route.snapshot.data['artists']
         
     }
 

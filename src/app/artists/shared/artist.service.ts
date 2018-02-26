@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/RX';
 
 // required only if this service requires injecting other services here
 // but is good practice to always add Injectable decorator in services
@@ -6,7 +7,16 @@ import { Injectable } from "@angular/core";
 
 export class ArtistService{
     getArtists(){
-        return ARTISTS;
+
+        //add async request, with a simulated delay
+        let subject = new Subject()
+        setTimeout(() => {
+            subject.next(ARTISTS); 
+            subject.complete();
+            },  100
+        )
+
+        return subject;
     }
 
     getArtist(id: number){

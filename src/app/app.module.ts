@@ -1,4 +1,3 @@
-import { ArtistRouteActivatorService } from './artists/shared/artist-route-activator.service';
 
 
 //imports of internal dependencies
@@ -17,9 +16,14 @@ import { ArtistAddComponent } from './artists/artist-add/artist-add.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { ToastrService } from './common/toastr.service';
 
+//Routes
 import { appRoutes } from './routes';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './errors/404.component';
+import { ArtistRouteActivatorService } from './artists/shared/artist-route-activator.service';
+
+//Async and Observables
+import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
 
 
 @NgModule({
@@ -40,6 +44,7 @@ import { Error404Component } from './errors/404.component';
     providers: [
         ArtistService,
         ArtistRouteActivatorService,
+        ArtistsListResolver,
         {provide: 'canDeactivateAddArtist', useValue: checkDirtyState}
         // ,  
         // ToastrService
