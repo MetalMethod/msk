@@ -24,3 +24,12 @@
 #userInfo{
     margin-left: 15px;
 }
+
+#sortButtons{
+    margin-right: 50px;
+}
+
+.sortLabel{
+    float: left;
+    margin: 6px 15px 0px 0px;
+}

@@ -6,26 +6,32 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav mr-auto">
-            
-        <li class="nav-item">
-            <button [routerLink]="['/artists/add']" id="addArtistButton" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Add</button>
-        </li>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <button [routerLink]="['/artists/add']" id="addArtistButton" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Add</button>
+            </li>
+        </ul>
 
-        <!-- <li class="nav-item active">
-          <a class="nav-link" href="#">arrange by Date Added <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">arrange by Name</a>
-        </li> -->
-      </ul>
+        <div id ="sortButtons">
+            <div class="sortLabel" >Sort by: </div> 
+
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">     
+                <label class="btn btn-outline-secondary active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked=""> Date
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Name
+                </label>
+            </div>
+        </div>
+
       <form id="searchForm" class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" placeholder="Search" type="text">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
       <div id="userInfo">username1:<a class="btn btn-link" href="#">logout</a></div>
     </div>
-  </nav>
+</nav>
 
 
   
