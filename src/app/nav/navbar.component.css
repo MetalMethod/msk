@@ -3,6 +3,11 @@
     width: 200px;
 }
 
+#addArtistButton.active{
+    width: 200px;
+    background-color: cornflowerblue;
+}
+
 .nav.navbar-nav{
     font-size: 10px;
 }
