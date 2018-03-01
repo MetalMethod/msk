@@ -10,8 +10,9 @@ import { ArtistsListResolver } from './artists/artists-list/artists-list.resolve
 
 export const appRoutes:Routes = [
     { path: 'artists/add', component: ArtistAddComponent, canDeactivate: ['canDeactivateAddArtist'] },
-    { path: '', redirectTo: '/artists', pathMatch: 'full'},
     { path: 'artists', component: ArtistsListComponent , resolve:{artists:ArtistsListResolver}},
     { path: 'artists/:id', component: ArtistDetailsComponent, canActivate: [ArtistRouteActivatorService] },
-    { path: '404', component: Error404Component}
+    { path: '404', component: Error404Component},
+    { path: '', redirectTo: '/artists', pathMatch: 'full'},
+    { path: 'user', loadChildren: 'app/user/user.module#UserModule' }
 ]
