@@ -1,12 +1,15 @@
 import { Routes } from '@angular/router'
 
-import { ArtistsListComponent } from "./artists/artists-list/artists-list.component";
-import { ArtistDetailsComponent } from './artists/artist-details/artist-details.component';
-import { ArtistAddComponent } from './artists/artist-add/artist-add.component';
-import { Error404Component } from './errors/404.component';
-import { ArtistRouteActivatorService } from './artists/shared/artist-route-activator.service';
-import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service';
+import {
+    ArtistsListComponent,
+    ArtistDetailsComponent,
+    ArtistAddComponent,
+    ArtistRouteActivatorService,
+    ArtistsListResolver
 
+} from './artists/index'
+
+import { Error404Component } from './errors/404.component';
 
 export const appRoutes:Routes = [
     { path: 'artists/add', component: ArtistAddComponent, canDeactivate: ['canDeactivateAddArtist'] },
