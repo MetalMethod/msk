@@ -12,8 +12,20 @@
 
 }
 
-
 .jumbotron{
     float: none !important;
     align-content: center;
+}
+
+.btn-outline-primary{margin-top: 10px;}
+
+.btn-outline-primary:disabled{
+    border-color: #616161; color: #616161
+}
+
+em{ 
+    font-size: 0.8em;
+    /* float: right; */
+    color: #e44848;
+    padding-left: 10px;
 }
