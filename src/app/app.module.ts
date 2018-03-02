@@ -13,7 +13,7 @@ import {
     ArtistDetailsComponent,
     ArtistService,
     ArtistAddComponent
-
+    
 } from './artists/index'
 
 import { NavBarComponent } from './nav/navbar.component';
@@ -29,6 +29,8 @@ import { ArtistRouteActivatorService } from './artists/shared/artist-route-activ
 import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
 import { UserModule } from './user/user.module';
 
+//User and Authentication
+import { AuthService } from './user/auth/auth.service';
 
 @NgModule({
     imports: [
@@ -50,7 +52,8 @@ import { UserModule } from './user/user.module';
         ArtistService,
         ArtistRouteActivatorService,
         ArtistsListResolver,
-        {provide: 'canDeactivateAddArtist', useValue: checkDirtyState}
+        {provide: 'canDeactivateAddArtist', useValue: checkDirtyState},
+        AuthService
         // ,  
         // ToastrService
     ],
