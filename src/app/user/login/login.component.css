@@ -1,0 +1,14 @@
+#loginRow{
+    margin-top: 30px;
+}
+
+
+#loginBtn{
+    width: 253px;
+    margin-right: 15px;
+}
+
+.jumbotron{
+    float: none !important;
+    align-content: center;
+}
