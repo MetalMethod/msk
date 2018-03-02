@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { IArtist } from './../shared/artist.model';
+
 
 @Component({
     selector: 'artist-thumbnail',
@@ -6,6 +8,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     templateUrl: 'artist-thumbnail.component.html'
 })
 export class ArtistThumbnailComponent{
-    @Input() artist:any;
+    @Input() artist:IArtist;
    
  }

@@ -21,11 +21,11 @@
       </div>
       <div class="col-md-6">
         <div><strong>Genre:</strong> {{artist?.genre}}</div>
-        <div><strong>Country:</strong> {{artist?.country}}</div>
+        <div *ngIf="artist.country"><strong>Country:</strong> {{artist?.country}}</div>
       </div>
     </div>
 
-      <div class="row">
+      <div class="row" *ngIf="artist.link">
             <div class="col-md-12">
                 <div class="linksBlock"><strong>Links:</strong> link1:  {{artist?.links.link1}}</div>
             </div>

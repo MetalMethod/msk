@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { ArtistService } from './../shared/artist.service';
 //import { ToastrService } from './../../common/toastr.service';
 import { ActivatedRoute } from '@angular/router';
+import { IArtist } from './../shared/artist.model';
 
 @Component({
     selector: 'artists-list',
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ArtistsListComponent implements OnInit{
-    artists:any
+    artists:IArtist[]
 
     //injecting the service
     // constructor( private artistService: ArtistService, private  toastrService: ToastrService){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArtistService } from './../shared/artist.service';
 import { ActivatedRoute } from '@angular/router';
+import { IArtist } from './../shared/artist.model';
 
 @Component({
     selector: 'artist-details',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtistDetailsComponent implements OnInit{
 
-    artist: any
+    artist: IArtist
 
     constructor(private artistService:ArtistService, private route:ActivatedRoute){ 
     }
