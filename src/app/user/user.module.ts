@@ -6,7 +6,7 @@ import  {userRoutes } from './user.routes';
 
 import { FormsModule } from '@angular/forms';
 
-import { ProfileComponent } from './profile.component';
+import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
