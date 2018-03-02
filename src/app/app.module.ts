@@ -27,13 +27,15 @@ import { ArtistRouteActivatorService } from './artists/shared/artist-route-activ
 
 //Async and Observables
 import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
     imports: [
         BrowserModule,
         // RouterModule.forRoot(appRoutes, {enableTracing: true})
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        UserModule
         ],
     declarations: [
         MskAppComponent, 

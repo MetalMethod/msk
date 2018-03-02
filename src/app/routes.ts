@@ -6,10 +6,12 @@ import {
     ArtistAddComponent,
     ArtistRouteActivatorService,
     ArtistsListResolver
-
+    
 } from './artists/index'
 
 import { Error404Component } from './errors/404.component';
+
+import { UserModule } from './user/user.module';
 
 export const appRoutes:Routes = [
     { path: 'artists/add', component: ArtistAddComponent, canDeactivate: ['canDeactivateAddArtist'] },
@@ -17,5 +19,5 @@ export const appRoutes:Routes = [
     { path: 'artists/:id', component: ArtistDetailsComponent, canActivate: [ArtistRouteActivatorService] },
     { path: '404', component: Error404Component},
     { path: '', redirectTo: '/artists', pathMatch: 'full'},
-    { path: 'user', loadChildren: 'app/user/user.module#UserModule' }
+    { path: 'user', component: UserModule }
 ]
