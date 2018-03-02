@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -12,22 +12,34 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit{
 
   profileForm:FormGroup
+  private firstName:FormControl
+  private lastName:FormControl
 
   constructor(private authService: AuthService, private router: Router){}
 
   ngOnInit(){
-    let firstName = new FormControl(this.authService.currentUser.firstName)
-    let lastName  = new FormControl(this.authService.currentUser.lastName)
+    this.firstName = new FormControl(this.authService.currentUser.firstName, Validators.required)
+    this.lastName  = new FormControl(this.authService.currentUser.lastName, Validators.required)
 
     this.profileForm = new FormGroup({
-      firstName: firstName,
-      lastName: lastName
+      firstName: this.firstName,
+      lastName: this.lastName
     })
   }
 
   saveProfile(formValues){
-    this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
-    this.router.navigate(['artists'])
+    if(this.profileForm.valid){
+      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
+      this.router.navigate(['artists'])
+    }
+  }
+  
+  validateFirstName(){
+    return this.firstName.valid || this.firstName.untouched
+  }
+
+  validateLastName(){
+    return this.lastName.valid || this.lastName.untouched
   }
 
   cancel(){
