@@ -33,10 +33,10 @@ const ARTISTS:IArtist[] = [
         genre: 'Some genre',
         description:  'Being a developer in 2037 is about more than just writing bug-free code. You also have to look the part.',
         country: 'Portugal',
-        imageUrl: '/assets/images/angularconnect-shield.png',
-        links: {
-            linkUrl1: 'www.google.com',
-            linkUrls2: 'www.wikipedia.org',
+        link: 'www.google.com',
+        songs: {
+            song1: 'www.google.com',
+            song2: 'www.wikipedia.org',
         },
         user: 'user1',
         dateAdded: new Date('5/4/2027')       
@@ -55,10 +55,10 @@ const ARTISTS:IArtist[] = [
         genre: 'Some genre',
         description:  'Sometimes our internal biases can make it difficult forthese well-designed coworkers to really feel at home coding alongside us.',
         country: 'Portugal',
-        imageUrl: '/assets/images/angularconnect-shield.png',
-        links: {
-            linkUrl1: 'www.google.com',
-            linkUrls2: 'www.wikipedia.org',
+        link: 'www.google.com',
+        songs: {
+            song1: 'www.google.com',
+            song2: 'www.wikipedia.org',
         },
         user: 'user1',
         dateAdded: new Date('25/3/2068')       
@@ -69,10 +69,10 @@ const ARTISTS:IArtist[] = [
         genre: 'Some genre',
         description:  'Angular has been used in most of the major peace brokering that has happened in the last decade',
         country: 'Portugal',
-        imageUrl: '/assets/images/angularconnect-shield.png',
-        links: {
-            linkUrl1: 'www.google.com',
-            linkUrls2: 'www.wikipedia.org',
+        link: 'www.google.com',
+        songs: {
+            song1: 'www.google.com',
+            song2: 'www.wikipedia.org',
         },
         user: 'user1',
         dateAdded: new Date('5/4/2027')       

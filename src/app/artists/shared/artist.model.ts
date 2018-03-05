@@ -5,10 +5,11 @@ export interface IArtist{
     description?: string
     country?: string
     imageUrl?: string
-    links?: {
-        linkUrl1?: string
-        linkUrls2?: string
-        linkUrl3?: string
+    link?: string
+    songs? :{
+        song1?: string
+        song2?: string
+        song3?: string
     }
     user: string
     dateAdded: Date

@@ -30,7 +30,7 @@ import { ArtistsListResolver } from './artists/artists-list/artists-list.resolve
 import { AuthService } from './user/auth/auth.service';
 import { UserModule } from './user/user.module';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -39,6 +39,7 @@ import { FormsModule } from '@angular/forms';
         RouterModule.forRoot(appRoutes),
         UserModule,
         FormsModule,
+        ReactiveFormsModule
         ],
     declarations: [
         MskAppComponent, 
