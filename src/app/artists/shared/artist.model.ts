@@ -9,8 +9,8 @@ export interface IArtist{
     songs? :{
         song1?: string
         song2?: string
-        song3?: string
     }
+    album?: string
     user: string
     dateAdded: Date
 }

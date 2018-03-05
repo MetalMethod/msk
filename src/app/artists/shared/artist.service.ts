@@ -35,9 +35,10 @@ const ARTISTS:IArtist[] = [
         country: 'Portugal',
         link: 'www.google.com',
         songs: {
-            song1: 'www.google.com',
-            song2: 'www.wikipedia.org',
+            song1: 'good one',
+            song2: 'kinda good',
         },
+        album: 'Green album',
         user: 'user1',
         dateAdded: new Date('5/4/2027')       
     },
@@ -74,6 +75,7 @@ const ARTISTS:IArtist[] = [
             song1: 'www.google.com',
             song2: 'www.wikipedia.org',
         },
+        album: 'Dirty Dance',
         user: 'user1',
         dateAdded: new Date('5/4/2027')       
     },

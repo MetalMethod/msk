@@ -9,27 +9,30 @@
     <!-- <img [src]="artist?.imageUrl" [alt]="artist?.name" class="artist-image"> -->
   
     <div class="row">
-      <div class="col-md-12">
-        <h2>{{artist?.name}} </h2>
-      </div>
+        <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <h2>{{artist?.name}} </h2>
+            <hr>
+          </div>
+      <div class="col-md-4"></div>
     </div>
   
     <div class="row">
-      <div class="col-md-6">
-            <strong>Description:</strong><br /> 
-            {{artist?.description}}<br />
+      <div class="col-md-3"></div>
+      
+      <div class="col-md-3">
+        <div class="genreBadge"><strong>Genre: <br> </strong> <span class="badge badge-secondary">{{artist?.genre}}</span></div>
+        <div class="songClass" *ngIf="artist.songs" >Remarkable Song: <br><strong>{{artist?.songs.song1}}</strong></div>
+        <div class="songClass" *ngIf="artist.songs" >Another Good Song: <br><strong>{{artist?.songs.song2}}</strong></div>
+        <div class="songClass" *ngIf="artist.album" >Best Album: <br><strong>{{artist?.album}}</strong></div>
       </div>
-      <div class="col-md-6">
-        <div><strong>Genre:</strong> {{artist?.genre}}</div>
-        <div *ngIf="artist.country"><strong>Country:</strong> {{artist?.country}}</div>
-      </div>
+      <div class="col-md-4">
+        <div class="countryTxt" *ngIf="artist.country"><strong>Country:</strong> {{artist?.country}}</div>
+        <div> <strong>Description:</strong><br /> {{artist?.description}}</div>
+        <div *ngIf="artist.link" class="linksBlock"><strong>Link:</strong>{{artist?.link}}</div>
     </div>
 
-      <div class="row" *ngIf="artist.link">
-            <div class="col-md-12">
-                <div class="linksBlock"><strong>Links:</strong> link1:  {{artist?.links.link1}}</div>
-            </div>
-      </div>
+    <div class="col-md-2"></div>
 
       <!-- <div class="row">
           <div class="col-md-6">
