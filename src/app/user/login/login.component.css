@@ -4,11 +4,11 @@
 
 
 #loginBtn{
-    width: 365px;
+    width: 255px;
 }
 
 #userName , #password{
-    width: 365px;
+    width: 255px;
 
 }
 
@@ -29,3 +29,10 @@ em{
     color: #e44848;
     padding-left: 10px;
 }
+
+
+.error input {background-color: #e44848;}
+.error ::-webkit-input-placeholder { color: #e44848;}
+.error ::-moz-placeholder { color: #e44848;}
+.error :-moz-placeholder { color: #e44848;}
+.error :-ms-input-placeholder { color: #e44848;}

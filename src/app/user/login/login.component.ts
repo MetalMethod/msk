@@ -23,4 +23,12 @@ export class LoginComponent{
         this.router.navigate(['artists'])
     }
 
+    // validateUserName(){
+    //     return this.userName.valid || this.userName.untouched
+    //   }
+    
+    //   validatePasswordName(){
+    //     return this.password.valid || this.password.untouched
+    //   }
+    
 }

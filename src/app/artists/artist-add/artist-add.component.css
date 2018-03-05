@@ -1,0 +1,15 @@
+em{ 
+    font-size: 0.8em;
+    color: #e44848;
+    padding-left: 10px;
+}
+
+.error input {background-color: #e44848;}
+.error ::-webkit-input-placeholder { color: #e44848;}
+.error ::-moz-placeholder { color: #e44848;}
+.error :-moz-placeholder { color: #e44848;}
+.error :-ms-input-placeholder { color: #e44848;}
+
+.btn-outline-primary{
+    width: 255px;
+}

@@ -1,5 +1,3 @@
-
-
 //imports of internal dependencies
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser' 
@@ -27,17 +25,20 @@ import { ArtistRouteActivatorService } from './artists/shared/artist-route-activ
 
 //Async and Observables
 import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
-import { UserModule } from './user/user.module';
 
 //User and Authentication
 import { AuthService } from './user/auth/auth.service';
+import { UserModule } from './user/user.module';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         BrowserModule,
         // RouterModule.forRoot(appRoutes, {enableTracing: true})
         RouterModule.forRoot(appRoutes),
-        UserModule
+        UserModule,
+        FormsModule,
         ],
     declarations: [
         MskAppComponent, 
