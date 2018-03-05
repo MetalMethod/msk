@@ -23,6 +23,12 @@ export class ArtistService{
     getArtist(id: number):IArtist{
         return ARTISTS.find(artist => artist.id === id);
    }
+
+   addArtist(formValues){
+    formValues.id = 999;
+    formValues.session = []
+    ARTISTS.push(formValues)
+   }
 }
 
 //mock data to be added in database / API

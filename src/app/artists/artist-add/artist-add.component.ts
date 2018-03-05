@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ArtistService } from './../shared/artist.service';
 
 
 @Component({
@@ -12,12 +13,14 @@ export class ArtistAddComponent{
 
     isDirty:boolean = true
 
-    constructor(private router:Router){
+    constructor(private router:Router, private artistService: ArtistService){
 
     }
 
     addArtist(formValues){
-        console.log(formValues);
+        this.artistService.addArtist(formValues);
+        this.isDirty = false
+        this.router.navigate(['/artists'])
     }
 
     cancel(){
