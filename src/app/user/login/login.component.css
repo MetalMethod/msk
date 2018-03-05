@@ -4,17 +4,14 @@
 
 
 #loginBtn{
-    width: 255px;
+    width: 342px;
+    /* width: 255px; */
 }
 
 #userName , #password{
-    width: 255px;
+    width: 342px;
+    /* width: 255px; */
 
-}
-
-.jumbotron{
-    float: none !important;
-    align-content: center;
 }
 
 .btn-outline-primary{margin-top: 10px;}
