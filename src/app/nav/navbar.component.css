@@ -1,13 +1,3 @@
-
-#addArtistButton{
-    width: 200px;
-}
-
-#addArtistButton.active{
-    width: 200px;
-    background-color: cornflowerblue;
-}
-
 .nav.navbar-nav{
     font-size: 10px;
 }
@@ -16,24 +6,51 @@
     margin-left: 15px;
 }
 
-#searchForm {
-    margin-right: 60px;
+#addArtistButton{
+    width: 250px;
 }
 
-@media(max-width: 1200px) {
-    #searchForm {
-        display: none
+#addArtistButton.active{
+    background-color: cornflowerblue;
+}
+
+#searchForm {
+    margin-right: 30px;
+}
+
+@media(max-width: 1300px) {
+    #searchForm{
+        width: 280px;
+    }
+    #searchForm input{
+        width: 175px; 
+    }
+    #searchForm button{
+        margin-left: 10px;
+        width: 80px; 
     }
 }
 
-#userInfo{
-    margin-left: 15px;
+
+@media(max-width: 400px) {
+    #userInfo{
+        width: 280px;
+        margin-top: 10px;
+    }
+    #userInfo a{
+        width: 132px;
+    }
 }
 
 #sortButtons{
-    margin-right: 50px;
+    margin-right: 10px;
 }
 
+@media(max-width: 400px) {
+    #sortButtons{
+        margin-top: 10px;
+    }
+}
 .sortLabel{
     float: left;
     margin: 6px 15px 0px 0px;
