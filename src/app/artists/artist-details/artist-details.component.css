@@ -2,6 +2,11 @@
     padding: 0;
 }
 
+.infoBg{
+    background-color: rgb(43, 43, 43);
+    padding: 20px;
+}
+
 .artist-image{
     height: 100px;
 }

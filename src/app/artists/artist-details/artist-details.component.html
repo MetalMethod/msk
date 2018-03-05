@@ -1,46 +1,36 @@
 <div class="container">
     
-  <div class="row">
-        <div class="col-md-12 backLink">
-          <a [routerLink] = "['/artists']">Back to your artists list</a>
-        </div>
-    </div>
-
     <!-- <img [src]="artist?.imageUrl" [alt]="artist?.name" class="artist-image"> -->
   
     <div class="row">
-        <div class="col-md-4"></div>
-          <div class="col-md-4">
+        <div class="col-md-4">
+            <div class="backLink">
+                <a [routerLink] = "['/artists']">Back to your artists list</a>
+              </div>
+        </div>
+          <div class="col-md-4 text-center">
             <h2>{{artist?.name}} </h2>
             <hr>
           </div>
       <div class="col-md-4"></div>
     </div>
   
-    <div class="row">
+    <div class="row ">
       <div class="col-md-3"></div>
       
-      <div class="col-md-3">
+      <div class="col-md-3 infoBg">
         <div class="genreBadge"><strong>Genre: <br> </strong> <span class="badge badge-secondary">{{artist?.genre}}</span></div>
         <div class="songClass" *ngIf="artist.songs" >Remarkable Song: <br><strong>{{artist?.songs.song1}}</strong></div>
         <div class="songClass" *ngIf="artist.songs" >Another Good Song: <br><strong>{{artist?.songs.song2}}</strong></div>
         <div class="songClass" *ngIf="artist.album" >Best Album: <br><strong>{{artist?.album}}</strong></div>
       </div>
-      <div class="col-md-4">
-        <div class="countryTxt" *ngIf="artist.country"><strong>Country:</strong> {{artist?.country}}</div>
+      <div class="col-md-4 infoBg">
+        <div class="countryTxt" *ngIf="artist.country">Country: <strong><br>{{artist?.country}}</strong></div>
         <div> <strong>Description:</strong><br /> {{artist?.description}}</div>
-        <div *ngIf="artist.link" class="linksBlock"><strong>Link:</strong>{{artist?.link}}</div>
+        <div *ngIf="artist.link" class="linksBlock"><strong>Link:</strong><br>{{artist?.link}}</div>
     </div>
 
     <div class="col-md-2"></div>
-
-      <!-- <div class="row">
-          <div class="col-md-6">
-            </div>
-        <div class="col-md-6">
-          <div><strong>Songs:</strong> song1:  {{artist?.songs.song1}}</div>        
-        </div>
-      </div> -->
 
 </div>
   
