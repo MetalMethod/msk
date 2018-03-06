@@ -14,33 +14,41 @@
           </div>
       <div class="col-md-4"></div>
     </div>
-  
+    
+    <div class="row ">
+        <div class="col-md-3"></div>
+        
+        <div class="col-md-6 buttonsBar d-flex justify-content-center">
+            <button id="editBtn" class="btn btn-outline-primary" type="button" (click) ="editDetails()">Edit Artist</button>
+            <button id="delBtn" class="btn btn-outline-danger" type="button" (click) ="deleteArtist()">Delete Artist</button>
+        </div>
+
+        <div class="col-md-3"></div>
+    </div>
+
     <div class="row ">
       <div class="col-md-3"></div>
       
       <div class="col-md-3 infoBg">
         
-        <div class="genreBadge"><strong>Genre: <br> </strong> <span class="badge badge-secondary">{{artist?.genre}}</span></div>
-        <div class="songClass" *ngIf="artist.songs" >Remarkable Song: <br><strong>{{artist?.songs.song1}}</strong></div>
-        <div class="songClass" *ngIf="artist.songs" >Another Good Song: <br><strong>{{artist?.songs.song2}}</strong></div>
-        <div class="songClass" *ngIf="artist.album" >Best Album: <br><strong>{{artist?.album}}</strong></div>
+        <div class="genreBadge">Genre: <br><span class="badge badge-secondary">{{artist?.genre}}</span></div>
+        <div class="songClass" *ngIf="artist.songs" >Remarkable Song: <br><span class="dataTxt">{{artist?.songs.song1}}</span></div>
+        <div class="songClass" *ngIf="artist.songs" >Another Good Song: <br><span class="dataTxt">{{artist?.songs.song2}}</span></div>
+        <div class="songClass" *ngIf="artist.album" >Best Album: <br><span class="dataTxt">{{artist?.album}}</span></div>
       </div>
-      <div class="col-md-4 infoBg">
+      <div class="col-md-3 infoBg">
 
-        <div id="buttonsContainer">
-          <button id="editBtn" class="btn btn-outline-primary" type="button" (click) ="editDetails()">Edit Artist</button>
-          <button id="delBtn" class="btn btn-outline-danger" type="button" (click) ="deleteArtist()">Delete Artist</button>
-        </div>
+       
 
-        <div *ngIf="artist.country" class="countryTxt" >Country: <strong><br>{{artist?.country}}</strong></div>
-        <div *ngIf="artist.description"> <strong>Description:</strong><br /> {{artist?.description}}</div>
-        <div *ngIf="artist.link" class="linksBlock"><strong>Link:</strong><br>{{artist?.link}}</div>
+        <div *ngIf="artist.country" class="countryTxt" >Country: <br><span class="dataTxt">{{artist?.country}}</span></div>
+        <div *ngIf="artist.description"> Description:<br /> <span class="dataTxt">{{artist?.description}}</span></div>
+        <div *ngIf="artist.link" class="linksBlock">Link:<br><span class="dataTxt">{{artist?.link}}</span></div>
 
-        <div *ngIf="artist.dateAdded" class="dateBlock"><strong>Date Added:</strong><br>{{artist.dateAdded}}</div>
+        <div *ngIf="artist.dateAdded" class="dateBlock">Date Added:<br><span class="dataTxt">{{artist.dateAdded}}</span></div>
 
     </div>
 
-    <div class="col-md-2"></div>
+    <div class="col-md-3"></div>
 
 </div>
   
