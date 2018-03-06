@@ -26,7 +26,7 @@ export class ArtistService {
     }
 
     addArtist(formValues) {
-        formValues.id = 999;
+        formValues.id = Math.max.apply(null, ARTISTS.map(artist => artist.id )) + 1;
         ARTISTS.push(formValues)
     }
 
@@ -44,7 +44,7 @@ export class ArtistService {
 }
 
 //mock data to be added in database / API
-const ARTISTS: IArtist[] = [
+let ARTISTS: IArtist[] = [
     {
         id: 1,
         name: 'Name One',
