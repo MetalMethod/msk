@@ -80,7 +80,7 @@ let ARTISTS: IArtist[] = [
             song2: 'www.wikipedia.org',
         },
         user: 'user1',
-        dateAdded: new Date('25/3/2068')
+        dateAdded: new Date('12/14/2068')
     },
     {
         id: 4,
@@ -112,7 +112,7 @@ let ARTISTS: IArtist[] = [
         genre: 'Some genre',
         description: 'Let\'s take a look at some of the stranger pieces of Angular 4, including neural net nets, Android in Androids, and using pipes with actual pipes.',
         user: 'user1',
-        dateAdded: new Date('25/3/2068')
+        dateAdded: new Date('5/23/2068')
     },
     {
         id: 7,

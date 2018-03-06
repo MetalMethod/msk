@@ -37,17 +37,24 @@
 }
 
 #buttonsContainer{
+    margin-left: 20px;
+    width: 100px;
     float: right;
 }
 
 #editBtn{
+    width: 90px;
     font-size: 0.7em;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    
+    margin-bottom: 10px;
+    background-color: black;
 }
 
 #delBtn{
+    width: 90px;    
     font-size: 0.7em;
-    margin-bottom: 20px;
+    background-color: black;
+}
+
+.dateBlock{
+    margin-top: 20px;
 }

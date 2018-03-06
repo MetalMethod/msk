@@ -32,9 +32,12 @@
           <button id="delBtn" class="btn btn-outline-danger" type="button" (click) ="deleteArtist()">Delete Artist</button>
         </div>
 
-        <div class="countryTxt" *ngIf="artist.country">Country: <strong><br>{{artist?.country}}</strong></div>
-        <div> <strong>Description:</strong><br /> {{artist?.description}}</div>
+        <div *ngIf="artist.country" class="countryTxt" >Country: <strong><br>{{artist?.country}}</strong></div>
+        <div *ngIf="artist.description"> <strong>Description:</strong><br /> {{artist?.description}}</div>
         <div *ngIf="artist.link" class="linksBlock"><strong>Link:</strong><br>{{artist?.link}}</div>
+
+        <div *ngIf="artist.dateAdded" class="dateBlock"><strong>Date Added:</strong><br>{{artist.dateAdded}}</div>
+
     </div>
 
     <div class="col-md-2"></div>
