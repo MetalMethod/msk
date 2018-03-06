@@ -9,7 +9,7 @@
               </div>
         </div>
           <div class="col-md-4 text-center">
-            <h2>{{artist?.name}} </h2>
+            <h4>{{artist?.name | uppercase}} </h4>
             <hr>
           </div>
       <div class="col-md-4"></div>
@@ -44,7 +44,7 @@
         <div *ngIf="artist.description"> Description:<br /> <span class="dataTxt">{{artist?.description}}</span></div>
         <div *ngIf="artist.link" class="linksBlock">Link:<br><span class="dataTxt">{{artist?.link}}</span></div>
 
-        <div *ngIf="artist.dateAdded" class="dateBlock">Date Added:<br><span class="dataTxt">{{artist.dateAdded}}</span></div>
+        <div *ngIf="artist.dateAdded" class="dateBlock">Date Added:<br><span class="dataTxt">{{artist.dateAdded | date:'dd/MM/yyyy' }}</span></div>
 
     </div>
 
