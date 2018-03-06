@@ -10,7 +10,8 @@ import {
     ArtistThumbnailComponent,
     ArtistDetailsComponent,
     ArtistService,
-    ArtistAddComponent
+    ArtistAddComponent,
+    ArtistEditComponent
     
 } from './artists/index'
 
@@ -48,6 +49,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ArtistDetailsComponent, 
         NavBarComponent,
         ArtistAddComponent,
+        ArtistEditComponent,
         Error404Component
     ],
     providers: [

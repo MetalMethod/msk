@@ -1,3 +1,4 @@
+import { ArtistDetailsComponent } from './../artist-details/artist-details.component';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs/RX';
 import { IArtist } from './artist.model';
@@ -26,8 +27,20 @@ export class ArtistService{
 
    addArtist(formValues){
     formValues.id = 999;
-    formValues.session = []
     ARTISTS.push(formValues)
+   }
+
+   editArtist(formValues, id){
+       let selectedArtist = this.getArtist(id)
+       console.log(id)
+    selectedArtist.name = formValues.name
+    selectedArtist.genre = formValues.genre
+    selectedArtist.description = formValues.description
+    selectedArtist.album = formValues.album
+    selectedArtist.country = formValues.country
+    selectedArtist.link = formValues.link
+    selectedArtist.songs = formValues.songs
+
    }
 }
 

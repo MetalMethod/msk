@@ -1,0 +1,60 @@
+em{ 
+    font-size: 0.8em;
+    color: #e44848;
+    padding-left: 10px;
+}
+
+.error input {background-color: #e44848;}
+.error ::-webkit-input-placeholder { color: #e44848;}
+.error ::-moz-placeholder { color: #e44848;}
+.error :-moz-placeholder { color: #e44848;}
+.error :-ms-input-placeholder { color: #e44848;}
+
+
+
+@media screen and (min-width: 1200px) {
+    #saveBtn{   
+        width: 75%;
+        margin-top: 20px;
+        margin-right: 15px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #saveBtn{   
+        width: 79%;
+        margin-top: 20px;
+        margin-right: 15px;
+    }
+}
+
+#cancelBtn{
+    /* width: 77px; */
+    width: 100%;
+    
+    margin-top: 20px;
+    /* margin-left: 5px; */
+}
+
+.btn-outline-primary{margin-top: 10px;}
+
+.btn-outline-primary:disabled{
+    border-color: #616161; color: #616161
+}
+
+input {
+    max-width: 317px;
+}
+
+#countrySelect, #descriptionTextarea{
+    max-width: 317px;
+    
+}
+
+#artistLink {
+    margin-top: 33px;
+}
+
+.notRequired{
+    background-color: #c0c0c0;
+}

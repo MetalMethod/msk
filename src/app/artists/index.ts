@@ -5,3 +5,4 @@ export * from './artists-list/artists-list.component'
 export * from './artists-list/artists-list.resolver.service'
 export * from './shared/index'
 
+export * from './artist-details/artist-edit/artist-edit.component'
