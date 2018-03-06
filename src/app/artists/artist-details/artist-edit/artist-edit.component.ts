@@ -42,9 +42,7 @@ export class ArtistEditComponent{
     }
 
     cancel(){
-        // this.router.navigate(['/artists'])
-        this.router.navigate(['/artists' + '/' + this.id.toString()])
-        
+        this.router.navigate(['/artists' + '/' + this.id.toString()])        
     }
 
 }
