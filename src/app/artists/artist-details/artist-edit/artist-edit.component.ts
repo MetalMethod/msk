@@ -36,7 +36,7 @@ export class ArtistEditComponent{
     }
 
     editArtist(formValues){
-        this.artistService.editArtist(formValues, this.id);
+        this.artistService.updateArtist(formValues, this.id);
         this.isDirty = false
         this.router.navigate(['/artists' + '/' + this.id.toString()])
     }

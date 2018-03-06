@@ -18,7 +18,7 @@ export class ArtistAddComponent{
     }
 
     addArtist(formValues){
-        this.artistService.addArtist(formValues);
+        this.artistService.saveArtist(formValues);
         this.isDirty = false
         this.router.navigate(['/artists'])
     }

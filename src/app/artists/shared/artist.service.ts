@@ -25,12 +25,12 @@ export class ArtistService {
         return ARTISTS.find(artist => artist.id === id);
     }
 
-    addArtist(formValues) {
+    saveArtist(formValues) {
         formValues.id = Math.max.apply(null, ARTISTS.map(artist => artist.id )) + 1;
         ARTISTS.push(formValues)
     }
 
-    editArtist(formValues, id) {
+    updateArtist(formValues, id) {
         let selectedArtist = this.getArtist(id)
         selectedArtist.name = formValues.name
         selectedArtist.genre = formValues.genre
