@@ -36,7 +36,18 @@
     margin-bottom: 20px;
 }
 
-#editBtn{
-    margin-bottom: 20px;
+#buttonsContainer{
+    float: right;
 }
 
+#editBtn{
+    font-size: 0.7em;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    
+}
+
+#delBtn{
+    font-size: 0.7em;
+    margin-bottom: 20px;
+}

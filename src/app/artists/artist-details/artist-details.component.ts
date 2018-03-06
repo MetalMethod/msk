@@ -23,4 +23,8 @@ export class ArtistDetailsComponent implements OnInit{
     editDetails(){
         this.router.navigate(['/artists' + '/' + this.route.snapshot.params['id'] + '/edit'])
     }
+
+    deleteArtist(){
+        console.log("Del button clicked")
+    }
 }
