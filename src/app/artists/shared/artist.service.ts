@@ -48,7 +48,7 @@ let ARTISTS: IArtist[] = [
     {
         id: 1,
         name: 'Name One',
-        genre: 'Some genre',
+        genre: 'Jazz',
         description: 'Being a developer in 2037 is about more than just writing bug-free code. You also have to look the part.',
         country: 'Portugal',
         link: 'www.google.com',
@@ -62,16 +62,16 @@ let ARTISTS: IArtist[] = [
     },
     {
         id: 2,
-        name: 'Name Two',
-        genre: 'Some genre',
+        name: 'Two',
+        genre: 'Classical',
         description: 'Coinciding with the release of Star Wars Episode 18, this talk will show how to use directives in your Angular 4 development',
         user: 'user1',
         dateAdded: new Date('5/4/2027')
     },
     {
         id: 3,
-        name: 'Name Three',
-        genre: 'Some genre',
+        name: 'Three',
+        genre: 'Metal',
         description: 'Sometimes our internal biases can make it difficult forthese well-designed coworkers to really feel at home coding alongside us.',
         country: 'Portugal',
         link: 'www.google.com',
@@ -84,8 +84,8 @@ let ARTISTS: IArtist[] = [
     },
     {
         id: 4,
-        name: 'Name Four',
-        genre: 'Some genre',
+        name: 'Four',
+        genre: 'Fusion',
         description: 'Angular has been used in most of the major peace brokering that has happened in the last decade',
         country: 'Portugal',
         link: 'www.google.com',
@@ -99,8 +99,8 @@ let ARTISTS: IArtist[] = [
     },
     {
         id: 5,
-        name: 'Name Five',
-        genre: 'Some genre',
+        name: 'Five',
+        genre: 'Funk',
         description: 'We all know that Angular is used in most waiter-bots and coke vending machines, but did you know that was also used to write the core engine in the majority of voting machines? ',
         country: 'Portugal',
         user: 'user1',
@@ -109,7 +109,7 @@ let ARTISTS: IArtist[] = [
     {
         id: 6,
         name: 'Name Six',
-        genre: 'Some genre',
+        genre: 'Reggae',
         description: 'Let\'s take a look at some of the stranger pieces of Angular 4, including neural net nets, Android in Androids, and using pipes with actual pipes.',
         user: 'user1',
         dateAdded: new Date('5/23/2068')
@@ -117,7 +117,7 @@ let ARTISTS: IArtist[] = [
     {
         id: 7,
         name: 'Name Seven',
-        genre: 'Some genre',
+        genre: 'Metal',
         description: 'Coinciding with the release of Star Wars Episode 18, this talk will show how to use directives in your Angular 4 development',
         country: 'Portugal',
         user: 'user1',

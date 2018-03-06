@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input, OnChanges } from '@angular/core'
 import { ArtistService } from './../shared/artist.service';
 //import { ToastrService } from './../../common/toastr.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,8 +10,12 @@ import { IArtist } from './../shared/artist.model';
     styleUrls: ['artists-list.component.css']
 })
 
-export class ArtistsListComponent implements OnInit{
+export class ArtistsListComponent implements OnInit, OnChanges{
+    
     artists:IArtist[]
+    visibleArtist: IArtist[]
+
+    //sortBy: string = 'dateAdded'
 
     //injecting the service
     // constructor( private artistService: ArtistService, private  toastrService: ToastrService){
@@ -23,7 +27,7 @@ export class ArtistsListComponent implements OnInit{
         //event callend when the component is first loaded
         //this.artists = this.artistService.getArtists().subscribe(artists => {this.artists = artists})
         this.artists = this.route.snapshot.data['artists']
-        
+        this.sortArtists('date')
     }
 
     handleThumbnailClick(artistName){
@@ -31,4 +35,37 @@ export class ArtistsListComponent implements OnInit{
         console.log("click")
     }
 
+    // @Input() sortBy: string
+    sortBy: string
+
+    ngOnChanges(){
+        // console.log(this.sortBy)
+        // this.sortArtists(this.sortBy)
+    }
+
+    sortArtists(filterValue: string){
+        if(filterValue === 'date') this.artists.sort(sortByDateAsc) 
+        if(filterValue === 'name') this.artists.sort(sortByNameAsc)
+        if(filterValue === 'genre') this.artists.sort(sortByGenreAsc)
+    }
+
 }
+
+function sortByDateAsc(a1: IArtist, a2: IArtist){
+    if(a1.id > a2.id) return 1
+    else if(a1.dateAdded === a2.dateAdded) return 0
+    else return -1
+}
+
+function sortByNameAsc(a1: IArtist, a2: IArtist){
+    if(a1.name > a2.name) return 1
+    else if(a1.name === a2.name) return 0
+    else return -1
+}
+
+function sortByGenreAsc(a1: IArtist, a2: IArtist){
+    if(a1.genre > a2.genre) return 1
+    else if(a1.genre === a2.genre) return 0
+    else return -1
+}
+

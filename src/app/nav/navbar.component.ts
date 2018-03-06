@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Output } from '@angular/core'
 import { AuthService } from './../user/auth/auth.service';
 
 @Component({
@@ -8,8 +8,13 @@ import { AuthService } from './../user/auth/auth.service';
 })
 
 export class NavBarComponent{
+    
+    //sortBy: string ='dateAdded'
+
     constructor(private auth:AuthService){
 
     }
 
+   // @Output() sortBy: string
+    
 }

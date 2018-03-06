@@ -13,21 +13,21 @@
             </li>
         </ul>
 
-        <div id ="sortButtons">
+        <!-- <div id ="sortButtons">
             <div class="sortLabel" >Sort by: </div> 
 
             <div class="btn-group btn-group-toggle" data-toggle="buttons">     
                 <label class="btn btn-outline-secondary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked=""> Date
+                    <input (click)="sortBy='date'" type="radio" name="options" id="option1" autocomplete="off" checked=""> Date
                 </label>
                 <label class="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> Name
+                    <input (click)="sortBy='name'" type="radio" name="options" id="option2" autocomplete="off"> Name
                 </label>
                 <label class="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> Genre
+                    <input (click)="sortBy='genre'"  type="radio" name="options" id="option3" autocomplete="off"> Genre
                 </label>
             </div>
-        </div>
+        </div> -->
 
         <form id="searchForm" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" placeholder="Search" type="text">

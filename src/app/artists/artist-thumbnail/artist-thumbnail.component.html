@@ -2,8 +2,8 @@
     <h6>{{ (artist.name.length>35)? (artist.name | uppercase | slice:0:35)+'   .  .  .   ':(artist.name | uppercase) }}</h6>
     
     <div>
-        <span class="text-primary">genre: </span>
-        <span class="badge badge-secondary">{{artist.genre}}</span>        
+        <!-- <span class="text-primary">genre: </span> -->
+        <span class="badge badge-light">{{artist.genre | uppercase}}</span>        
     </div>
     <div *ngIf="artist?.description" class="description">{{ (artist.description.length>185)? (artist.description | slice:0:185)+'   .  .  .   ':(artist.description) }}</div>
     
