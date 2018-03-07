@@ -1,5 +1,5 @@
 import { ArtistDetailsComponent } from './../artist-details/artist-details.component';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Subject, Observable } from 'rxjs/RX';
 import { IArtist } from './artist.model';
 
@@ -26,7 +26,7 @@ export class ArtistService {
     }
 
     saveArtist(formValues) {
-        formValues.id = Math.max.apply(null, ARTISTS.map(artist => artist.id )) + 1;
+        formValues.id = Math.max.apply(null, ARTISTS.map(artist => artist.id)) + 1;
         ARTISTS.push(formValues)
     }
 
@@ -39,8 +39,46 @@ export class ArtistService {
         selectedArtist.country = formValues.country
         selectedArtist.link = formValues.link
         selectedArtist.songs = formValues.songs
-
     }
+
+    searchAll(searchTerm: string) {
+        var term = searchTerm.toLocaleLowerCase();
+        var result: IArtist[] = [];
+        // TODO: reimplementation of searchAll
+        //debugger
+        result = ARTISTS.filter(artist => {
+            if (artist['name'].toLocaleLowerCase().indexOf(term) > -1) {return true};
+
+            if (artist['genre'].toLocaleLowerCase().indexOf(term) > -1) {return true};
+
+            if (artist.description) {
+                if (artist['description'].toLocaleLowerCase().indexOf(term) > -1) {return true};
+            }
+
+            if (artist.country) {
+                if (artist['country'].toLocaleLowerCase().indexOf(term) > -1) {return true};
+            }
+
+            if (artist.album) {
+                if (artist['album'].toLocaleLowerCase().indexOf(term) > -1) {return true};
+            }
+
+            if (artist.songs && artist.songs.song1) {
+                if (
+                    artist.songs['song1'].toLocaleLowerCase().indexOf(term) > -1 
+                    || artist.songs['song2'].toLocaleLowerCase().indexOf(term) > -1
+                ) {return true};
+            }
+    
+        });
+
+        var emitter = new EventEmitter(true);
+        setTimeout(() => {
+            emitter.emit(result);
+        }, 100);
+        return emitter;
+    }
+
 }
 
 //mock data to be added in database / API
