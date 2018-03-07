@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+
+
+import { Component, OnInit , Inject} from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../auth/auth.service';
 import { Router } from '@angular/router';
-import { ToastrNgxService } from '../../common/toastr.service';
+import { ToastrService } from 'ngx-toastr';
+// import { TOASTR_TOKEN, ToastrNgService } from '../../common/toastr.service';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -16,7 +19,13 @@ export class ProfileComponent implements OnInit{
   private firstName:FormControl
   private lastName:FormControl
 
-  constructor(private authService: AuthService, private router: Router, private toastr:ToastrNgxService){}
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private toastr: ToastrService
+  ){
+    
+  }
 
   ngOnInit(){
     // passing a group of validators with dfefined target pattern to validate against

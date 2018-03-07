@@ -16,9 +16,12 @@ import {
 } from './artists/index'
 
 import { NavBarComponent } from './nav/navbar.component';
-import {  ToastrNgxService } from './common/toastr.service';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+//TOASTR
+import { ToastrService, ToastrModule } from 'ngx-toastr';
+
+// import { TOASTR_TOKEN, ToastrNgService } from './common/toastr.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Routes
 import { appRoutes } from './routes';
@@ -34,6 +37,10 @@ import { AuthService } from './user/auth/auth.service';
 import { UserModule } from './user/user.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+//global injection
+//let toastr:ToastrNgService;
 
 @NgModule({
     imports: [
@@ -63,9 +70,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ArtistsListResolver,
         {provide: 'canDeactivateAddArtist', useValue: checkDirtyState},
         AuthService,
-        ToastrNgxService
-        // ,  
-        // ToastrService
+        ToastrService,
+
     ],
     bootstrap: [MskAppComponent]
 })
