@@ -1,33 +1,39 @@
-import { Injectable } from '@angular/core';
 
-declare let toastr:any;
+//Toastr dependencies
+//import { ToastrModule } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+
+import { Injectable } from '@angular/core';
+//declare let toastr:any;
 
 @Injectable()
-export class ToastrService implements Injectable{
+export class ToastrNgxService implements Injectable{
 
-    constructor(){
-        this.init()
+    constructor(private toastr:ToastrService){
+//        this.init()
     }
 
-    init(){
-        toastr.options.progressBar = true;
-        toastr.options.closeButton = true;
-    }
+    // init(){
+    //     this.toastr.options.progressBar = true;
+    //     this.toastr.options.closeButton = true;
+    // }
     
     success(message: string, tittle?:string){
-        toastr.success(message, tittle);
+        this.toastr.success(message, tittle, {progressBar:true, closeButton:true});
     }
 
     info(message: string, tittle?:string){
-        toastr.info(message, tittle)
+        this.toastr.info(message, tittle, {progressBar:true, closeButton:true})
     }
     
     warning(message: string, tittle?:string){
-        toastr.warning(message, tittle)
+        this.toastr.warning(message, tittle, {progressBar:true, closeButton:true})
     }
     
     error(message: string, tittle?:string){
-        toastr.error(message, tittle)
+        this. toastr.error(message, tittle, {progressBar:true, closeButton:true})
     }
 
 }

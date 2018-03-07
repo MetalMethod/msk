@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../auth/auth.service';
 import { Router } from '@angular/router';
+import { ToastrNgxService } from '../../common/toastr.service';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -15,7 +16,7 @@ export class ProfileComponent implements OnInit{
   private firstName:FormControl
   private lastName:FormControl
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router, private toastr:ToastrNgxService){}
 
   ngOnInit(){
     // passing a group of validators with dfefined target pattern to validate against
@@ -31,6 +32,7 @@ export class ProfileComponent implements OnInit{
   saveProfile(formValues){
     if(this.profileForm.valid){
       this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
+      this.toastr.success("Your profile was altered.", "Success!")
       this.router.navigate(['artists'])
     }
   }

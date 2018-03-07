@@ -16,7 +16,9 @@ import {
 } from './artists/index'
 
 import { NavBarComponent } from './nav/navbar.component';
-import { ToastrService } from './common/toastr.service';
+import {  ToastrNgxService } from './common/toastr.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 //Routes
 import { appRoutes } from './routes';
@@ -40,7 +42,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         RouterModule.forRoot(appRoutes),
         UserModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ToastrModule.forRoot(),
+        BrowserAnimationsModule
+        
         ],
     declarations: [
         MskAppComponent, 
@@ -57,7 +62,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ArtistRouteActivatorService,
         ArtistsListResolver,
         {provide: 'canDeactivateAddArtist', useValue: checkDirtyState},
-        AuthService
+        AuthService,
+        ToastrNgxService
         // ,  
         // ToastrService
     ],
