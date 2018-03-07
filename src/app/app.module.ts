@@ -29,9 +29,11 @@ import { ArtistsListResolver } from './artists/artists-list/artists-list.resolve
 
 //User and Authentication
 import { AuthService } from './user/auth/auth.service';
+import { AuthRouteActivatorService } from './user/auth/auth-route-activator.service';
 import { UserModule } from './user/user.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Error404RouteActivatorService } from './errors/404-route-activator.service';
 
 @NgModule({
     imports: [
@@ -57,7 +59,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ArtistRouteActivatorService,
         ArtistsListResolver,
         {provide: 'canDeactivateAddArtist', useValue: checkDirtyState},
-        AuthService
+        AuthService,
+        AuthRouteActivatorService,
+        Error404RouteActivatorService
         // ,  
         // ToastrService
     ],

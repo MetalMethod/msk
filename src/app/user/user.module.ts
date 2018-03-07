@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { AuthRouteActivatorService } from './auth/auth-route-activator.service';
 
 @NgModule({
     imports:[
@@ -21,7 +22,7 @@ import { LoginComponent } from './login/login.component';
         LoginComponent
     ],
     providers: [
-
+        AuthRouteActivatorService
     ]
 })
 
