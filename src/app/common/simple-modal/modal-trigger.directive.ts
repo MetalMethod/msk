@@ -20,9 +20,9 @@ export class ModalTriggerDirective implements OnInit {
 
             $('#simpleModal').on('shown.bs.modal', function(){
                 var modal = $(this)
-               
+               // modal.find('h4').text(title)
             })
-
+            
         })
     }
 

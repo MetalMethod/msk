@@ -31,7 +31,7 @@
 
         <form id="searchForm" (ngSubmit)="searchAll(searchTerm)" class="form-inline my-2 my-lg-0">
             <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control mr-sm-2" placeholder="Search" type="text">
-            <button id="searchButton" class="btn btn-secondary my-2 my-sm-0"  data-toggle="modal" data-target="#simpleModal" modal-trigger>Search</button>
+            <button class="btn btn-secondary my-2 my-sm-0" data-toggle="modal" data-target="#searchResults" modal-trigger>Search</button>
         </form>
         
         <div id="userInfo">
@@ -46,7 +46,8 @@
     </div>
 </nav>
 
-<simple-modal title="Matching results:">
+<!-- SIMPLE MODAL FOR SEARCH RESULTS -->
+<simple-modal elementId="searchResults" title="Matching results:">
     <div class="list-group">
         <a class="list-group-item" *ngFor="let artist of foundArtists"  [routerLink]="['/artists', artist.id]">{{artist.name}}</a>
     </div>

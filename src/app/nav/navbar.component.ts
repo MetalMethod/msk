@@ -30,7 +30,7 @@ export class NavBarComponent{
         this.artistService.searchAll(searchTerm).subscribe
         (artists => {
             this.foundArtists = artists;
-            console.log(this.foundArtists)
+            //console.log(this.foundArtists)
         })
     }
 
