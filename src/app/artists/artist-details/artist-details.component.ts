@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArtistService } from './../shared/artist.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { IArtist } from './../shared/artist.model';
 
 @Component({
@@ -16,8 +16,14 @@ export class ArtistDetailsComponent implements OnInit{
     }
 
     ngOnInit(){
+        //OLD IMPLEMENTATION
         //+ casts to number
-        this.artist = this.artistService.getArtist(+this.route.snapshot.params['id'])
+        //this.artist = this.artistService.getArtist(+this.route.snapshot.params['id'])
+
+        this.route.params.forEach((params: Params) =>{
+            this.artist = this.artistService.getArtist(+params['id'])
+        })
+
     }
 
     editDetails(){
