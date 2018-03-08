@@ -41,6 +41,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //MODAL
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
+import { ModalTriggerDirective } from './common/simple-modal/modal-trigger.directive';
 
 //global injection
 //let toastr:ToastrNgService;
@@ -66,7 +67,8 @@ import { SimpleModalComponent } from './common/simple-modal/simple-modal.compone
         ArtistAddComponent,
         ArtistEditComponent,
         Error404Component,
-        SimpleModalComponent
+        SimpleModalComponent,
+        ModalTriggerDirective
     ],
     providers: [
         ArtistService,

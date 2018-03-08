@@ -31,7 +31,6 @@ export class NavBarComponent{
         (artists => {
             this.foundArtists = artists;
             console.log(this.foundArtists)
-            this.modal.open(this.foundArtists);
         })
     }
 

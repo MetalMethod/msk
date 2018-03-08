@@ -1,28 +1,30 @@
-// import { Directive, OnInit, ElementRef } from '@angular/core';
-// //import { JQueryService  } from './../j-query.service';
-// import * as $ from 'jquery';
+//import { JQueryService  } from './../j-query.service';
+//import * as $ from 'jquery';
+import { Directive, OnInit, ElementRef } from '@angular/core';
 
 
-// @Directive({
-//     selector: '[modal-trigger]'
-// })
-// export class ModalTriggerDirective implements OnInit {
+@Directive({
+    selector: '[modal-trigger]'
+})
+export class ModalTriggerDirective implements OnInit {
 
-//     private el: HTMLElement;
+    private el: HTMLElement;
     
 
-//     constructor(private elementRef: ElementRef){
-//         this.el = elementRef.nativeElement;
-        
-//     }
+    constructor(ref: ElementRef){
+        this.el = ref.nativeElement;
+    }
 
-//     ngOnInit(): void {
-//         this.el.addEventListener('click', e =>{
+    ngOnInit() {
+        this.el.addEventListener('click', e =>{
 
-//             $('#simple-modal').modal({});
+            $('#simpleModal').on('shown.bs.modal', function(){
+                var modal = $(this)
+               
+            })
 
-//         })
-//     }
+        })
+    }
 
 
-// }
+}
