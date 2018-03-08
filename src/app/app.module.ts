@@ -36,8 +36,11 @@ import { ArtistsListResolver } from './artists/artists-list/artists-list.resolve
 import { AuthService } from './user/auth/auth.service';
 import { UserModule } from './user/user.module';
 
+//FORMS
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//MODAL
+import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 
 //global injection
 //let toastr:ToastrNgService;
@@ -62,7 +65,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         NavBarComponent,
         ArtistAddComponent,
         ArtistEditComponent,
-        Error404Component
+        Error404Component,
+        SimpleModalComponent
     ],
     providers: [
         ArtistService,
@@ -71,6 +75,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         {provide: 'canDeactivateAddArtist', useValue: checkDirtyState},
         AuthService,
         ToastrService,
+        SimpleModalComponent
 
     ],
     bootstrap: [MskAppComponent]
