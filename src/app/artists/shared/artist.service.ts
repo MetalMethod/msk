@@ -27,6 +27,9 @@ export class ArtistService {
 
     saveArtist(formValues) {
         formValues.id = Math.max.apply(null, ARTISTS.map(artist => artist.id)) + 1;
+        
+        if(!formValues.songs.song1 && !formValues.songs.song2) formValues.songs = null;
+        
         ARTISTS.push(formValues)
     }
 
@@ -35,10 +38,10 @@ export class ArtistService {
         selectedArtist.name = formValues.name
         selectedArtist.genre = formValues.genre
         selectedArtist.description = formValues.description
-        selectedArtist.album = formValues.album
         selectedArtist.country = formValues.country
         selectedArtist.link = formValues.link
-        selectedArtist.songs = formValues.songs
+        if(formValues.songs) selectedArtist.songs = formValues.songs
+        selectedArtist.album = formValues.album
     }
 
     searchAll(searchTerm: string) {

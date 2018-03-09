@@ -31,10 +31,11 @@
       
       <div class="col-md-3 infoBg">
         
-        <!-- <div class="genreBadge">Genre: <br><span class="badge badge-light">{{artist?.genre | uppercase}}</span></div> -->
         <div class="genreBadge"><span class="badge badge-light">{{artist?.genre | uppercase}}</span></div>
+
         <div class="songClass" *ngIf="artist.songs" >Remarkable Song: <br><span class="dataTxt">{{artist?.songs.song1}}</span></div>
         <div class="songClass" *ngIf="artist.songs" >Another Good Song: <br><span class="dataTxt">{{artist?.songs.song2}}</span></div>
+        
         <div class="songClass" *ngIf="artist.album" >Best Album: <br><span class="dataTxt">{{artist?.album}}</span></div>
       </div>
       <div class="col-md-3 infoBg">
