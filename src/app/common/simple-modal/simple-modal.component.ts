@@ -11,12 +11,15 @@ import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 export class SimpleModalComponent {
     @Input() title: string;
     @Input() elementId: string;
+    @Input() closeOnBodyClick: string;
 
     @ViewChild('modalContainer') containerElement: ElementRef
     
     closeModal(){
-        //search for css class of generated close button from bootstrap and simulate a click.
-        $('.close').click()
+        if(this.closeOnBodyClick.toLocaleLowerCase() === "true"){
+            //search for css class of generated close button from bootstrap and simulate a click.
+            $('.close').click()
+        }
     }
 
 
