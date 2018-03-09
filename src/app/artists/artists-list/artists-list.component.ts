@@ -14,7 +14,7 @@ export class ArtistsListComponent implements OnInit, OnChanges{
     
     artists:IArtist[]
     visibleArtist: IArtist[]
-
+    errorMessage: any
     //sortBy: string = 'dateAdded'
 
     //injecting the service
@@ -25,9 +25,14 @@ export class ArtistsListComponent implements OnInit, OnChanges{
     
     ngOnInit(){
         //event callend when the component is first loaded
-        //this.artists = this.artistService.getArtists().subscribe(artists => {this.artists = artists})
-        this.artists = this.route.snapshot.data['artists']
-        this.sortArtists('date')
+        //this.artists = this.route.snapshot.data['artists']
+       this.artistService.getArtists().subscribe(
+            (artists: IArtist[]) => {
+                this.artists = artists
+                console.log(this.artists)
+                this.sortArtists('date')
+            })
+    
     }
 
     handleThumbnailClick(artistName){

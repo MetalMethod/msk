@@ -43,8 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 import { ModalTriggerDirective } from './common/simple-modal/modal-trigger.directive';
 
-//global injection
-//let toastr:ToastrNgService;
+//HTTP
+import { HttpModule } from '@angular/http';
 
 @NgModule({
     imports: [
@@ -55,8 +55,8 @@ import { ModalTriggerDirective } from './common/simple-modal/modal-trigger.direc
         FormsModule,
         ReactiveFormsModule,
         ToastrModule.forRoot(),
-        BrowserAnimationsModule
-        
+        BrowserAnimationsModule,
+        HttpModule
         ],
     declarations: [
         MskAppComponent, 
