@@ -25,8 +25,6 @@ export class ArtistDetailsComponent implements OnInit{
 
         this.route.params.forEach((params: Params) =>{
             this.artist = this.artistService.getArtist(+params['id'])
-
-            console.log(this.artist)
         })
 
     }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -12,5 +12,12 @@ export class SimpleModalComponent {
     @Input() title: string;
     @Input() elementId: string;
 
-   
+    @ViewChild('modalContainer') containerElement: ElementRef
+    
+    closeModal(){
+        //search for css class of generated close button from bootstrap and simulate a click.
+        $('.close').click()
+    }
+
+
 }

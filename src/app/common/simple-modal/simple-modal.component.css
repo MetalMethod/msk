@@ -1,4 +1,4 @@
 .modal-body{
     min-height: 250px; 
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
