@@ -12,6 +12,9 @@ export class ArtistDetailsComponent implements OnInit{
 
     artist: IArtist
 
+    //my own implementation
+    private currentId: number
+
     constructor(private artistService:ArtistService, private route:ActivatedRoute, private router:Router){ 
     }
 
@@ -22,13 +25,14 @@ export class ArtistDetailsComponent implements OnInit{
 
         this.route.params.forEach((params: Params) =>{
             this.artist = this.artistService.getArtist(+params['id'])
+
             console.log(this.artist)
         })
 
     }
 
     editDetails(){
-        this.router.navigate(['/artists' + '/' + this.route.snapshot.params['id'] + '/edit'])
+        this.router.navigate(['/artists' + '/' + this.artist.id.toString() + '/edit'])
     }
 
     deleteArtist(){
