@@ -29,7 +29,7 @@ export class ArtistsListComponent implements OnInit, OnChanges{
        this.artistService.getArtists().subscribe(
             (artists: IArtist[]) => {
                 this.artists = artists;
-                console.log(this.artists)
+                //console.log(this.artists)
                 this.sortArtists('date');
             })
     

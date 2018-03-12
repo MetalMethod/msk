@@ -1,5 +1,5 @@
 import { ArtistDetailsComponent } from './../artist-details/artist-details.component';
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Subject, Observable } from 'rxjs/RX';
 import { IArtist } from './artist.model';
 import { Http, Response } from '@angular/http';
@@ -13,6 +13,8 @@ import 'rxjs/add/operator/catch';
 export class ArtistService {
     
     ARTISTS: IArtist[]
+
+    @Output() searchData : any;
 
     constructor(private http: Http){}
 
@@ -48,11 +50,14 @@ export class ArtistService {
         selectedArtist.album = formValues.album
     }
 
-    searchAll(searchTerm: string) {
+    searchAll(searchTerm: string): IArtist[]  {
         var term = searchTerm.toLocaleLowerCase();
         var result: IArtist[] = [];
-        // TODO: reimplementation of searchAll
-        //debugger
+
+        // if(!this.ARTISTS) {
+        //     console.log("no ARTISTS")
+        //     return;
+        // }
         result = this.ARTISTS.filter(artist => {
             if (artist['name'].toLocaleLowerCase().indexOf(term) > -1) {return true};
 
@@ -71,19 +76,16 @@ export class ArtistService {
             }
 
             if (artist.songs && artist.songs.song1) {
-                if (
-                    artist.songs['song1'].toLocaleLowerCase().indexOf(term) > -1
-                    || artist.songs['song2'].toLocaleLowerCase().indexOf(term) > -1
-                ) {return true};
+                if (artist.songs['song1'].toLocaleLowerCase().indexOf(term) > -1) {return true};
             }
 
+            if (artist.songs && artist.songs.song2) {
+                if (artist.songs['song2'].toLocaleLowerCase().indexOf(term) > -1) {return true};
+            }
+        
         });
 
-        var emitter = new EventEmitter(true);
-        setTimeout(() => {
-            emitter.emit(result);
-        }, 100);
-        return emitter;
+        return result;
     }
 
     private handleError(error: Response){
