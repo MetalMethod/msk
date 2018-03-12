@@ -11,9 +11,9 @@ export class ArtistsListResolver implements Resolve<any> {
 
     resolve(){
         //async method acall and return data
-
         //does not requeire to add .subscribe() 
-        //because its a resolver and implements REsolve, that automatically calls subscrice.
-        return this.artistService.getArtists().subscribe()
+        //because its a resolver and implements Resolve, 
+        //that automatically calls subscrice.
+        return this.artistService.getArtists()
     }
 }

@@ -16,21 +16,13 @@ export class ArtistService {
 
     constructor(private http: Http){}
 
-    getArtists(): Observable<IArtist[]> {
-        // //add async request, with a simulated delay
-        // let subject = new Subject<IArtist[]>()
-        // setTimeout(() => {
-        //     subject.next(ARTISTS);
-        //     subject.complete();
-        // }, 100
-        // )
-        // return subject;
-
-        return this.http.get("http://www.mocky.io/v2/5aa2b5392f0000b01ad46705?mocky-delay=500ms")
-            .map((artists: Response)=>{
-                artists.json();
-            }).catch(this.handleError);
+    getArtists(): Observable<IArtist[]> {   
+        return this.http.get("http://www.mocky.io/v2/5aa65e74310000fd21e71572?mocky-delay=500ms")
+        .map((response: Response)=>{
+            return <IArtist[]>response.json();
+        }).catch(this.handleError);
     }
+
 
     getArtist(id: number): IArtist {
         return this.ARTISTS.find(artist => artist.id === id);
@@ -98,90 +90,3 @@ export class ArtistService {
     }
 
 }
-
-
-
-
-
-//mock data to be added in database / API
-// let ARTISTS: IArtist[] = [
-//     {
-//         id: 1,
-//         name: 'Name One',
-//         genre: 'Jazz',
-//         description: 'Being a developer in 2037 is about more than just writing bug-free code. You also have to look the part.',
-//         country: 'Portugal',
-//         link: 'www.google.com',
-//         songs: {
-//             song1: 'good one',
-//             song2: 'kinda good',
-//         },
-//         album: 'Green album',
-//         user: 'user1',
-//         dateAdded: new Date('5/4/2027')
-//     },
-//     {
-//         id: 2,
-//         name: 'Two',
-//         genre: 'Classical',
-//         description: 'Coinciding with the release of Star Wars Episode 18, this talk will show how to use directives in your Angular 4 development',
-//         user: 'user1',
-//         dateAdded: new Date('5/4/2027')
-//     },
-//     {
-//         id: 3,
-//         name: 'Three',
-//         genre: 'Metal',
-//         description: 'Sometimes our internal biases can make it difficult forthese well-designed coworkers to really feel at home coding alongside us.',
-//         country: 'Portugal',
-//         link: 'www.google.com',
-//         songs: {
-//             song1: 'www.google.com',
-//             song2: 'www.wikipedia.org',
-//         },
-//         user: 'user1',
-//         dateAdded: new Date('12/14/2068')
-//     },
-//     {
-//         id: 4,
-//         name: 'Four',
-//         genre: 'Fusion',
-//         description: 'Angular has been used in most of the major peace brokering that has happened in the last decade',
-//         country: 'Portugal',
-//         link: 'www.google.com',
-//         songs: {
-//             song1: 'www.google.com',
-//             song2: 'www.wikipedia.org',
-//         },
-//         album: 'Dirty Dance',
-//         user: 'user1',
-//         dateAdded: new Date('5/4/2027')
-//     },
-//     {
-//         id: 5,
-//         name: 'Five',
-//         genre: 'Funk',
-//         description: 'We all know that Angular is used in most waiter-bots and coke vending machines, but did you know that was also used to write the core engine in the majority of voting machines? ',
-//         country: 'Portugal',
-//         user: 'user1',
-//         dateAdded: new Date('5/4/2027')
-//     },
-//     {
-//         id: 6,
-//         name: 'Name Six',
-//         genre: 'Reggae',
-//         description: 'Let\'s take a look at some of the stranger pieces of Angular 4, including neural net nets, Android in Androids, and using pipes with actual pipes.',
-//         user: 'user1',
-//         dateAdded: new Date('5/23/2068')
-//     },
-//     {
-//         id: 7,
-//         name: 'Name Seven',
-//         genre: 'Metal',
-//         description: 'Coinciding with the release of Star Wars Episode 18, this talk will show how to use directives in your Angular 4 development',
-//         country: 'Portugal',
-//         user: 'user1',
-//         dateAdded: new Date('5/4/2027')
-//     }
-// ]
-//end of mock data array
