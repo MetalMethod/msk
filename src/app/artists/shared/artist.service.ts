@@ -19,7 +19,8 @@ export class ArtistService {
     getArtists(): Observable<IArtist[]> {   
         return this.http.get("http://www.mocky.io/v2/5aa65e74310000fd21e71572?mocky-delay=500ms")
         .map((response: Response)=>{
-            return <IArtist[]>response.json();
+            this.ARTISTS = <IArtist[]>response.json()
+            return this.ARTISTS;
         }).catch(this.handleError);
     }
 

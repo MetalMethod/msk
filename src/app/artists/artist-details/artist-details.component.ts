@@ -19,10 +19,7 @@ export class ArtistDetailsComponent implements OnInit{
     }
 
     ngOnInit(){
-        //OLD IMPLEMENTATION
         //+ casts to number
-        //this.artist = this.artistService.getArtist(+this.route.snapshot.params['id'])
-
         this.route.params.forEach((params: Params) =>{
             this.artist = this.artistService.getArtist(+params['id'])
         })

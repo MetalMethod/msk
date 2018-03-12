@@ -28,9 +28,9 @@ export class ArtistsListComponent implements OnInit, OnChanges{
         //this.artists = this.route.snapshot.data['artists']
        this.artistService.getArtists().subscribe(
             (artists: IArtist[]) => {
-                this.artists = artists
+                this.artists = artists;
                 console.log(this.artists)
-                this.sortArtists('date')
+                this.sortArtists('date');
             })
     
     }
