@@ -1,0 +1,159 @@
+[
+    {
+        "id": 1,
+        "name": "John Coltrane",
+        "genre": "Jazz",
+        "description": "Being a developer in 2037 is about more than just writing bug-free code. You also have to look the part.",
+        "country": "USA",
+        "link": "www.google.com",
+        "songs": {
+            "song1": "Blue Train",
+            "song2": "Giant Steps"
+        },
+        "album": "Giant Steps",
+        "user": "user",
+        "dateAdded": "2002-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 2,
+        "name": "Rachmaninoff",
+        "genre": "Classical",
+        "description": "This is the best russian piano player of all times.",
+        "country": "Russia",
+        "user": "user",
+        "dateAdded": "1999-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 3,
+        "name": "Ion Dissonance",
+        "genre": "Metal",
+        "description": "This is not for everyone. Dissonant, ultra heavy, pure highly controlled chaos.",
+        "country": "Canada",
+        "link": "www.wikipedia.com",
+        "songs": {
+            "song1": "SOAD",
+            "song2": "The Bud Dwyer Effect"
+        },
+        "album": "Solace",
+        "user": "user",
+        "dateAdded": "2011-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 4,
+        "name": "Allan Holdsworth",
+        "genre": "Fusion",
+        "description": "The one, true guitar master, spanning many generations of unique music, a true genious who re-invented the instrument. Left us on 2017.",
+        "country": "England",
+        "link": "www.google.com",
+        "songs": {
+            "song1": "Red Alert"
+        },
+        "album": "Lifetime",
+        "user": "user",
+        "dateAdded": "2005-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 5,
+        "name": "Funkadelic",
+        "genre": "Funk",
+        "description": "U know George Clinton, righta? We all know that Angular is used in most waiter-bots and coke vending machines, but d you know that was also used to write the core engine in the majority of voting machines? ",
+        "country": "USA",
+        "user": "user",
+        "dateAdded": "2002-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 6,
+        "name": "Groundation",
+        "genre": "Reggae",
+        "description": "Let\"s take a look at some of the stranger pieces of Angular 4, including neural net nets, Android, and using pipes with actual pipes.",
+        "songs": {
+            "song1": "We na forget"
+        },
+        "album": "Hebrons Gate",
+        "user": "user",
+        "dateAdded": "2004-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 7,
+        "name": "Psycroptic",
+        "genre": "Metal",
+        "description": "Technical death metal with amazing legato guitar lines and insane double bass riffs.",
+        "country": "USA",
+        "user": "user",
+        "dateAdded": "2007-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 8,
+        "name": "Marty Friedman",
+        "genre": "Metal",
+        "description": "Most know him as the former leader of Megadeth, but he is a true legend of string bending, solos harmonizations and a forever shredder.",
+        "country": "USA",
+        "link": "www.google.com",
+        "album": "Dragons Kiss",
+        "user": "user",
+        "dateAdded": "1997-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 9,
+        "name": "1200mic",
+        "genre": "Eletronic",
+        "description": "Psy trance classic group, from Ibiza.",
+        "country": "Spain",
+        "user": "user",
+        "dateAdded": "2018-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 10,
+        "name": "Iwrestledabearonce",
+        "genre": "Metal",
+        "description": "One of those weird and technically insane metal bands with a girl who screams a lot and also sings beautifully",
+        "country": "USA",
+        "link": "www.google.com",
+        "songs": {
+            "song1": "Tastes like Kevin Bacon"
+        },
+        "album": "Ruin it for everyone",
+        "user": "user",
+        "dateAdded": "2014-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 11,
+        "name": "Heitor Villa-Lobos",
+        "genre": "Brazilian Music",
+        "description": "Most important classical composer from Brazil, very prolific and with many beautiful pieces for guitar, string quartet and full orchestra.",
+        "country": "Brazil",
+        "user": "user",
+        "dateAdded": "2000-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 12,
+        "name": "Hermeto Pascoal",
+        "genre": "Brazilian Music",
+        "description": "If there is a Music God, it s him, really produces unique combinations of any kind of sound into brillant music.",
+        "country": "Brazil",
+        "user": "user",
+        "dateAdded": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 13,
+        "name": "Raja Ram",
+        "genre": "Eletronic",
+        "description": "GOA, bro! The crazy 1000mic flute guy.",
+        "country": "Australia",
+        "user": "user",
+        "dateAdded": "2002-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 14,
+        "name": "Abiogenesis",
+        "genre": "Metal",
+        "description": "One song band, really good but never went too far... you know... drummers...",
+        "country": "Italy",
+        "link": "https://www.youtube.com/watch?v=Rt1QVlOkRfU",
+        "songs": {
+            "song1": "Visualize"
+        },
+        "user": "user",
+        "dateAdded": "2017-04-23T18:25:43.511Z"
+    }
+]

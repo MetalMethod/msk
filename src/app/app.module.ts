@@ -27,7 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutes } from './routes';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './errors/404.component';
-import { ArtistRouteActivatorService } from './artists/shared/artist-route-activator.service';
+//import { ArtistRouteActivatorService } from './artists/shared/artist-route-activator.service';
 
 //Async and Observables
 import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
@@ -45,6 +45,7 @@ import { ModalTriggerDirective } from './common/simple-modal/modal-trigger.direc
 
 //HTTP
 import { HttpModule } from '@angular/http';
+import { ArtistResolver } from './artists/artist-details/artist-resolver.service';
 
 @NgModule({
     imports: [
@@ -72,7 +73,8 @@ import { HttpModule } from '@angular/http';
     ],
     providers: [
         ArtistService,
-        ArtistRouteActivatorService,
+       // ArtistRouteActivatorService,
+        ArtistResolver,
         ArtistsListResolver,
         {provide: 'canDeactivateAddArtist', useValue: checkDirtyState},
         AuthService,

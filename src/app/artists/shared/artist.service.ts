@@ -18,7 +18,7 @@ export class ArtistService {
 
     constructor(private http: Http){}
 
-    getArtists(): Observable<IArtist[]> {   
+    getArtists(): Observable<IArtist[]> {
         return this.http.get("http://www.mocky.io/v2/5aa65e74310000fd21e71572?mocky-delay=500ms")
         .map((response: Response)=>{
             this.ARTISTS = <IArtist[]>response.json()
@@ -28,7 +28,12 @@ export class ArtistService {
 
 
     getArtist(id: number): IArtist {
-        return this.ARTISTS.find(artist => artist.id === id);
+        let result: IArtist = this.ARTISTS.find(artist => artist.id === id);
+        if(result){
+            return result
+        } else {
+            return;
+        } 
     }
 
     saveArtist(formValues) {
@@ -51,8 +56,8 @@ export class ArtistService {
     }
 
     searchAll(searchTerm: string): IArtist[]  {
-        var term = searchTerm.toLocaleLowerCase();
-        var result: IArtist[] = [];
+        let term = searchTerm.toLocaleLowerCase();
+        let result: IArtist[] = [];
 
         // if(!this.ARTISTS) {
         //     console.log("no ARTISTS")

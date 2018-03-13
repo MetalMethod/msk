@@ -14,6 +14,9 @@ export class ArtistsListResolver implements Resolve<any> {
         //does not requeire to add .subscribe() 
         //because its a resolver and implements Resolve, 
         //that automatically calls subscrice.
-        return this.artistService.getArtists()
+
+        //but calling the hetArtists is dupication the server requests, so the call is done in artist-list component.
+        //this.artistService.getArtists()
+        return ;
     }
 }
