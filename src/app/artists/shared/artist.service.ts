@@ -2,7 +2,7 @@ import { ArtistDetailsComponent } from './../artist-details/artist-details.compo
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Subject, Observable } from 'rxjs/RX';
 import { IArtist } from './artist.model';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -41,7 +41,20 @@ export class ArtistService {
 
         if(!formValues.songs.song1 && !formValues.songs.song2) formValues.songs = null;
 
-        this.ARTISTS.push(formValues)
+        let headers = new Headers({'Content-Type':  'application/json'})
+        let options = new RequestOptions({headers: headers})
+        
+        return this.http.post("http://www.mocky.io/v2/5aa7ebcb2f00005c1e8ea81f?mocky-delay=600ms", JSON.stringify(formValues), options)
+       
+        // .map((response: Response)=>{
+        //     let temp = response.json()
+        //     console.log(temp)
+
+        //     return response.json();
+
+        // }).catch(this.handleError);
+       
+        //this.ARTISTS.push(formValues)
     }
 
     updateArtist(formValues, id) {

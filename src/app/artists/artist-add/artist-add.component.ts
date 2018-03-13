@@ -17,11 +17,20 @@ export class ArtistAddComponent{
 
     }
 
-    addArtist(formValues){
+    addArtist(formValues){debugger
         formValues.dateAdded = new Date();
-        this.artistService.saveArtist(formValues);
+
+        let resp:any;
+
+        this.artistService.saveArtist(formValues).subscribe(
+            response => {
+                resp = response
+                console.log(resp)
+                return response;
+            }
+        );
         this.isDirty = false
-        this.router.navigate(['/artists'])
+        //this.router.navigate(['/artists'])
     }
 
     cancel(){
