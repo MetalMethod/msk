@@ -1,10 +1,14 @@
 import { ArtistDetailsComponent } from './../artist-details/artist-details.component';
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { Subject, Observable } from 'rxjs/RX';
 import { IArtist } from './artist.model';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Subject, Observable } from 'rxjs/RX';
+
+// HTTP
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+
 
 // required only if this service requires injecting other services here
 // but is good practice to always add Injectable decorator in services
@@ -16,14 +20,14 @@ export class ArtistService {
 
     @Output() searchData : any;
 
-    constructor(private http: Http){}
+    constructor(private httpClient: HttpClient){}
 
-    getArtists(): Observable<IArtist[]> {
-        return this.http.get("http://www.mocky.io/v2/5aa65e74310000fd21e71572?mocky-delay=500ms")
-        .map((response: Response)=>{
-            this.ARTISTS = <IArtist[]>response.json()
-            return this.ARTISTS;
-        }).catch(this.handleError);
+    getArtists(): Observable<IArtist[]>  {
+        return this.httpClient.get<IArtist[]>("http://www.mocky.io/v2/5aa65e74310000fd21e71572?mocky-delay=500ms")
+        // .map((response: Response)=>{
+        //     this.ARTISTS = <IArtist[]>response.json()
+        //     return this.ARTISTS;
+        // }).catch(this.handleError);
     }
 
 
@@ -42,7 +46,7 @@ export class ArtistService {
         let headers = new Headers({'Content-Type':  'application/json'})
         let options = new RequestOptions({headers: headers})
         
-        return this.http.post("http://www.mocky.io/v2/5aa7ebcb2f00005c1e8ea81f?mocky-delay=600ms", JSON.stringify(formValues), options)
+        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa7ebcb2f00005c1e8ea81f?mocky-delay=600ms", formValues)
        
         // .map((response: Response)=>{
         //     let temp = response.json()
@@ -106,6 +110,10 @@ export class ArtistService {
 
     private handleError(error: Response){
         return Observable.throw(error.statusText);
+    }
+
+    public setArtistListData(data) {
+        this.ARTISTS = data
     }
 
 }

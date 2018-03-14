@@ -25,12 +25,12 @@ export class ArtistsListComponent implements OnInit, OnChanges{
     
     ngOnInit(){
         //event callend when the component is first loaded
-        //this.artists = this.route.snapshot.data['artists']
        this.artistService.getArtists().subscribe(
             (artists: IArtist[]) => {
                 this.artists = artists;
-                //console.log(this.artists)
                 this.sortArtists('date');
+                //pass list of artists to the service so it can serach serve the details page
+                this.artistService.setArtistListData(artists)
             })
     
     }

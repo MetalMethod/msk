@@ -44,7 +44,8 @@ import { SimpleModalComponent } from './common/simple-modal/simple-modal.compone
 import { ModalTriggerDirective } from './common/simple-modal/modal-trigger.directive';
 
 //HTTP
-import { HttpModule } from '@angular/http';
+// DEPRECATED import { HttpModule } from '@angular/http';
+import { HttpClientModule } from "@angular/common/http";
 import { ArtistResolver } from './artists/artist-details/artist-resolver.service';
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ArtistResolver } from './artists/artist-details/artist-resolver.service
         ReactiveFormsModule,
         ToastrModule.forRoot(),
         BrowserAnimationsModule,
-        HttpModule
+       // HttpModule
+       HttpClientModule
         ],
     declarations: [
         MskAppComponent, 
