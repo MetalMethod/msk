@@ -7,7 +7,8 @@ import { Subject, Observable } from 'rxjs/RX';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 
 // required only if this service requires injecting other services here
@@ -30,7 +31,6 @@ export class ArtistService {
         // }).catch(this.handleError);
     }
 
-
     getArtist(id: number): IArtist {
         let result: IArtist = this.ARTISTS.find(artist => artist.id === id);
         if(result){
@@ -40,23 +40,31 @@ export class ArtistService {
         } 
     }
 
-    saveArtist(formValues) {
+    saveArtist(formValues):  Observable<IArtist>   {
         formValues.id = Math.max.apply(null, this.ARTISTS.map(artist => artist.id)) + 1;
 
-        let headers = new Headers({'Content-Type':  'application/json'})
-        let options = new RequestOptions({headers: headers})
+        let headers = new Headers({})
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json'
+            })    
+        }
         
-        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa7ebcb2f00005c1e8ea81f?mocky-delay=600ms", formValues)
-       
-        // .map((response: Response)=>{
-        //     let temp = response.json()
-        //     console.log(temp)
-
-        //     return response.json();
-
-        // }).catch(this.handleError);
+        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", formValues, httpOptions)
+        // .pipe(
+        //     catchError(this.handleError)
+        // )
        
         //this.ARTISTS.push(formValues)
+    }
+
+    private handleError(error: Response){
+        return Observable.throw(error.statusText);
+    }
+
+    public setArtistListData(data) {
+        this.ARTISTS = data
     }
 
     updateArtist(formValues, id) {
@@ -102,18 +110,9 @@ export class ArtistService {
             if (artist.songs && artist.songs.song2) {
                 if (artist.songs['song2'].toLocaleLowerCase().indexOf(term) > -1) {return true};
             }
-        
         });
-
         return result;
     }
-
-    private handleError(error: Response){
-        return Observable.throw(error.statusText);
-    }
-
-    public setArtistListData(data) {
-        this.ARTISTS = data
-    }
+    
 
 }
