@@ -32,6 +32,9 @@ export class ArtistDetailsComponent implements OnInit{
     }
 
     deleteArtist(){
-        console.log("Del button clicked")
+        //console.log("Del button clicked")
+        let id = this.artist.id;
+        this.artistService.deleteArtist(id).subscribe();
+        this.router.navigate(['/artists'])
     }
 }

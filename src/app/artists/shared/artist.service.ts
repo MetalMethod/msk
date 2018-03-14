@@ -40,6 +40,7 @@ export class ArtistService {
     }
 
     saveArtist(formValues)   {
+        //moved to server logic: 
         //formValues.id = Math.max.apply(null, this.ARTISTS.map(artist => artist.id)) + 1;
 
         let headers = new Headers({})
@@ -58,20 +59,25 @@ export class ArtistService {
     }
 
     public setArtistListData(data) {
-        this.ARTISTS = data
+        this.ARTISTS = data;
     }
 
     updateArtist(formValues, id) {
-        let artistToUpdate = this.getArtist(id)
-        artistToUpdate.name = formValues.name
-        artistToUpdate.genre = formValues.genre
-        artistToUpdate.description = formValues.description
-        artistToUpdate.country = formValues.country
-        artistToUpdate.link = formValues.link
-        if(formValues.songs) artistToUpdate.songs = formValues.songs
-        artistToUpdate.album = formValues.album
+        let artistToUpdate = this.getArtist(id);
+        artistToUpdate.name = formValues.name;
+        artistToUpdate.genre = formValues.genre;
+        artistToUpdate.description = formValues.description;
+        artistToUpdate.country = formValues.country;
+        artistToUpdate.link = formValues.link;
+        if(formValues.songs) artistToUpdate.songs = formValues.songs;
+        artistToUpdate.album = formValues.album;
 
-        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", artistToUpdate, httpOptions)
+        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", artistToUpdate, httpOptions);
+    }
+
+    deleteArtist(id){
+        //TODO: add id to the url so te server can make the delete request
+        return this.httpClient.delete<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", httpOptions);
     }
 
     searchAll(searchTerm: string): IArtist[]  {
