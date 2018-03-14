@@ -17,11 +17,13 @@ export class ArtistAddComponent{
 
     }
 
-    addArtist(formValues){debugger
+    addArtist(formValues){
         formValues.dateAdded = new Date();
-
+        if(!formValues.songs.song1 && !formValues.songs.song2) formValues.songs = null;
+               
+        this.isDirty = false
+        
         let resp:any;
-
         this.artistService.saveArtist(formValues).subscribe(
             response => {
                 resp = response
@@ -29,8 +31,7 @@ export class ArtistAddComponent{
                 return response;
             }
         );
-        this.isDirty = false
-        //this.router.navigate(['/artists'])
+        this.router.navigate(['/artists'])
     }
 
     cancel(){

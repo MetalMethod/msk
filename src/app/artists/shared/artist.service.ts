@@ -39,8 +39,6 @@ export class ArtistService {
     saveArtist(formValues) {
         formValues.id = Math.max.apply(null, this.ARTISTS.map(artist => artist.id)) + 1;
 
-        if(!formValues.songs.song1 && !formValues.songs.song2) formValues.songs = null;
-
         let headers = new Headers({'Content-Type':  'application/json'})
         let options = new RequestOptions({headers: headers})
         
