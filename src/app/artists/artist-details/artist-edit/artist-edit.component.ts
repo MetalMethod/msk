@@ -36,9 +36,10 @@ export class ArtistEditComponent{
     }
 
     editArtist(formValues){
-        this.artistService.updateArtist(formValues, this.id);
-        this.isDirty = false
-        this.router.navigate(['/artists' + '/' + this.id.toString()])
+        this.artistService.updateArtist(formValues, this.id).subscribe( ()=>{
+            this.router.navigate(['/artists' + '/' + this.id.toString()])
+            this.isDirty = false
+        });
     }
 
     cancel(){

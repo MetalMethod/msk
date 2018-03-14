@@ -4,15 +4,18 @@ import { IArtist } from './artist.model';
 import { Subject, Observable } from 'rxjs/RX';
 
 // HTTP
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
 
-// required only if this service requires injecting other services here
-// but is good practice to always add Injectable decorator in services
+// common request options for POST
+const httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+    })    
+}
+
+
 @Injectable()
 
 export class ArtistService {
@@ -25,10 +28,6 @@ export class ArtistService {
 
     getArtists(): Observable<IArtist[]>  {
         return this.httpClient.get<IArtist[]>("http://www.mocky.io/v2/5aa65e74310000fd21e71572?mocky-delay=500ms")
-        // .map((response: Response)=>{
-        //     this.ARTISTS = <IArtist[]>response.json()
-        //     return this.ARTISTS;
-        // }).catch(this.handleError);
     }
 
     getArtist(id: number): IArtist {
@@ -40,16 +39,11 @@ export class ArtistService {
         } 
     }
 
-    saveArtist(formValues):  Observable<IArtist>   {
-        formValues.id = Math.max.apply(null, this.ARTISTS.map(artist => artist.id)) + 1;
+    saveArtist(formValues)   {
+        //formValues.id = Math.max.apply(null, this.ARTISTS.map(artist => artist.id)) + 1;
 
         let headers = new Headers({})
 
-        const httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type':  'application/json'
-            })    
-        }
         
         return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", formValues, httpOptions)
         // .pipe(
@@ -68,14 +62,16 @@ export class ArtistService {
     }
 
     updateArtist(formValues, id) {
-        let selectedArtist = this.getArtist(id)
-        selectedArtist.name = formValues.name
-        selectedArtist.genre = formValues.genre
-        selectedArtist.description = formValues.description
-        selectedArtist.country = formValues.country
-        selectedArtist.link = formValues.link
-        if(formValues.songs) selectedArtist.songs = formValues.songs
-        selectedArtist.album = formValues.album
+        let artistToUpdate = this.getArtist(id)
+        artistToUpdate.name = formValues.name
+        artistToUpdate.genre = formValues.genre
+        artistToUpdate.description = formValues.description
+        artistToUpdate.country = formValues.country
+        artistToUpdate.link = formValues.link
+        if(formValues.songs) artistToUpdate.songs = formValues.songs
+        artistToUpdate.album = formValues.album
+
+        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", artistToUpdate, httpOptions)
     }
 
     searchAll(searchTerm: string): IArtist[]  {
