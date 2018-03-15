@@ -11,9 +11,7 @@ import { Resolve } from '@angular/router';
 export class ArtistsListResolver implements Resolve<any> {
     constructor(private artistService: ArtistService, private auth: AuthService){}
 
-    resolve(){
-        console.log("user logged? " + this.auth.isAuthenticated().toString())
-        
+    resolve(){       
         return this.artistService.getArtists();
     }
 }

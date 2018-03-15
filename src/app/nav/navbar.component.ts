@@ -31,5 +31,8 @@ export class NavBarComponent{
         this.foundArtists = this.artistService.searchAll(searchTerm)
     }
 
+    logout(){
+        this.auth.logout();
+    }
 
 }

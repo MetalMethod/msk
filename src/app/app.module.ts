@@ -34,6 +34,7 @@ import { ArtistsListResolver } from './artists/artists-list/artists-list.resolve
 
 //User and Authentication
 import { AuthService } from './user/auth/auth.service';
+import { AuthGuard } from './user/auth/auth.guard';
 import { UserModule } from './user/user.module';
 
 //FORMS
@@ -81,7 +82,8 @@ import { ArtistResolver } from './artists/artist-details/artist-resolver.service
         {provide: 'canDeactivateAddArtist', useValue: checkDirtyState},
         AuthService,
         ToastrService,
-        SimpleModalComponent
+        SimpleModalComponent,
+        AuthGuard
 
     ],
     bootstrap: [MskAppComponent]
