@@ -32,34 +32,13 @@ export class ArtistService {
         return this.httpClient.get<IArtist[]>("http://localhost:3000/api/artists")
     }
 
-    // getArtist(id: number): IArtist {
-    //     debugger
-    //     let result: IArtist = this.ARTISTS.find(artist => artist.id === id);
-    //     if(result){
-    //         return result
-    //     } else {
-    //         return;
-    //     } 
-    // }
-
     getArtist(id: string): Observable<IArtist> {
-        debugger
-        return this.httpClient.get<IArtist>("http://localhost:3000/api/artists" + "/" + id.toString())
         
-        // let result: IArtist = this.ARTISTS.find(artist => artist.id === id);
-        // if(result){
-        //     return result
-        // } else {
-        //     return;
-        // } 
+        return this.httpClient.get<IArtist>("http://localhost:3000/api/artists" + "/" + id.toString())
     }
 
     saveArtist(formValues)   {
-        //moved to server logic: 
-        //formValues.id = Math.max.apply(null, this.ARTISTS.map(artist => artist.id)) + 1;
         formValues.user = "user1"
-
-        let headers = new Headers({})
 
         //return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", formValues, httpOptions)
         return this.httpClient.post<IArtist>("http://localhost:3000/api/artists", formValues, httpOptions)

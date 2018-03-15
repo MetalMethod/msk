@@ -1,22 +1,19 @@
+import { AuthService } from './../../user/auth/auth.service';
+import { IArtist } from './../shared/artist.model';
 
 //This resolver Grabs the data from ArtistListComponent before it renders itself
 
 import { ArtistService } from './../shared/artist.service';
 import { Injectable } from "@angular/core";
-import { Resolve } from '@angular/router'
+import { Resolve } from '@angular/router';
 
 @Injectable()
 export class ArtistsListResolver implements Resolve<any> {
-    constructor(private artistService: ArtistService){}
+    constructor(private artistService: ArtistService, private auth: AuthService){}
 
     resolve(){
-        //async method acall and return data
-        //does not requeire to add .subscribe() 
-        //because its a resolver and implements Resolve, 
-        //that automatically calls subscrice.
-
-        //but calling the hetArtists is dupication the server requests, so the call is done in artist-list component.
-        //this.artistService.getArtists()
-        return ;
+        console.log("user logged? " + this.auth.isAuthenticated().toString())
+        
+        return this.artistService.getArtists();
     }
 }
