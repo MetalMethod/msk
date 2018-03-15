@@ -76,8 +76,7 @@ export class ArtistService {
     }
 
     deleteArtist(id){
-        //TODO: add id to the url so te server can make the delete request
-        return this.httpClient.delete<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", httpOptions);
+        return this.httpClient.delete<IArtist>("http://localhost:3000/api/artists/" + "/" + id.toString(), httpOptions);
     }
 
     searchAll(searchTerm: string): IArtist[]  {

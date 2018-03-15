@@ -9,10 +9,10 @@ export class AuthService{
 
     currentUser: IUser
 
-    private loggedIn = new BehaviorSubject<boolean>(false);
+    private loggedIn:boolean = false;
 
-    get isLoggedIn(){
-        return this.loggedIn.asObservable()
+    public isLoggedIn():boolean {
+        return this.loggedIn
     }
 
     constructor(private router: Router){
@@ -21,10 +21,10 @@ export class AuthService{
 
     login(userName: string, password: string){
         if(userName !== '' && password != ''){
-            this.loggedIn.next(true);
+            this.loggedIn = true;
         }
 
-        //REMOVE THIS
+        //REMOVE THIS, this user date must be added on login, but must come from the server
         this.currentUser = {
             id:"dfwdve1",
             userName: userName,
@@ -36,7 +36,7 @@ export class AuthService{
     }
 
     logout(){
-        this.loggedIn.next(false);
+        this.loggedIn = false;
     }
 
     // loginUser(userName: string, password: string){
@@ -49,8 +49,9 @@ export class AuthService{
     //     }
     // }
 
-    isAuthenticated(){
-        return !!this.currentUser;
+    isAuthenticated():boolean{
+        //return !!this.currentUser;
+        return this.isLoggedIn()
     }
 
     updateCurrentUser(firstName: string, lastName:string){

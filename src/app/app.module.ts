@@ -59,7 +59,6 @@ import { ArtistResolver } from './artists/artist-details/artist-resolver.service
         ReactiveFormsModule,
         ToastrModule.forRoot(),
         BrowserAnimationsModule,
-       // HttpModule
        HttpClientModule
         ],
     declarations: [

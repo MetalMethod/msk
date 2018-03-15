@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/RX';
 import { ArtistService } from './../artists/shared/artist.service';
 import { Component, Output, Input, Injectable } from '@angular/core'
 import { AuthService } from './../user/auth/auth.service';
@@ -13,26 +14,32 @@ import { EventEmitter } from '@angular/core'
 })
 
 @Injectable()
-export class NavBarComponent{
-    
+export class NavBarComponent {
+
     searchTerm: string = "";
     foundArtists: IArtist[];
-    
+
     //@Output() public getData: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(private auth:AuthService, private artistService:ArtistService, private modal: SimpleModalComponent){
+    constructor(private auth: AuthService, private artistService: ArtistService, private modal: SimpleModalComponent) {
 
     }
-   
-    onSearch(){
+
+    isAuthenticated():boolean {
+        return this.auth.isAuthenticated()
     }
-    
-    searchAll(searchTerm: string){
+
+    onSearch() {
+    }
+
+    searchAll(searchTerm: string) {
         this.foundArtists = this.artistService.searchAll(searchTerm)
     }
 
-    logout(){
+    logout() {
+        console.log("logout click")
         this.auth.logout();
     }
+
 
 }
