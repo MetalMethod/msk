@@ -14,7 +14,7 @@ import { IArtist } from './../../shared/artist.model';
 export class ArtistEditComponent{
 
     isDirty:boolean = true
-    id:number
+    id:string
     artist: IArtist
     constructor(private router:Router, private artistService: ArtistService, private route:ActivatedRoute){
         
@@ -22,8 +22,12 @@ export class ArtistEditComponent{
     
     ngOnInit(){
         //+ casts to number
-        this.id = +this.route.snapshot.params['id']
-        this.artist = this.artistService.getArtist(this.id)
+        this.id = this.route.snapshot.params['id']
+        this.artistService.getArtist(this.id).subscribe(
+            (artist: IArtist) => {
+                this.artist = artist;
+            })
+        
 
         if(this.artist.country === null || this.artist.country === undefined) this.artist.country = ''
         if(this.artist.album === null || this.artist.album === undefined) this.artist.album = ''

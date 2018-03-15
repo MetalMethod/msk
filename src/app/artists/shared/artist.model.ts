@@ -1,5 +1,5 @@
 export interface IArtist{
-    id: number
+    id: string
     name: string
     genre: string
     description?: string

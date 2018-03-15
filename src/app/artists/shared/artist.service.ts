@@ -21,32 +21,49 @@ const httpOptions = {
 export class ArtistService {
     
     ARTISTS: IArtist[]
+    artistToUpdate: IArtist;
 
     @Output() searchData : any;
 
     constructor(private httpClient: HttpClient){}
 
     getArtists(): Observable<IArtist[]>  {
-        return this.httpClient.get<IArtist[]>("http://www.mocky.io/v2/5aa65e74310000fd21e71572?mocky-delay=500ms")
+        //return this.httpClient.get<IArtist[]>("http://www.mocky.io/v2/5aa65e74310000fd21e71572?mocky-delay=500ms")
+        return this.httpClient.get<IArtist[]>("http://localhost:3000/api/artists")
     }
 
-    getArtist(id: number): IArtist {
-        let result: IArtist = this.ARTISTS.find(artist => artist.id === id);
-        if(result){
-            return result
-        } else {
-            return;
-        } 
+    // getArtist(id: number): IArtist {
+    //     debugger
+    //     let result: IArtist = this.ARTISTS.find(artist => artist.id === id);
+    //     if(result){
+    //         return result
+    //     } else {
+    //         return;
+    //     } 
+    // }
+
+    getArtist(id: string): Observable<IArtist> {
+        debugger
+        return this.httpClient.get<IArtist>("http://localhost:3000/api/artists" + "/" + id.toString())
+        
+        // let result: IArtist = this.ARTISTS.find(artist => artist.id === id);
+        // if(result){
+        //     return result
+        // } else {
+        //     return;
+        // } 
     }
 
     saveArtist(formValues)   {
         //moved to server logic: 
         //formValues.id = Math.max.apply(null, this.ARTISTS.map(artist => artist.id)) + 1;
+        formValues.user = "user1"
 
         let headers = new Headers({})
 
-        
-        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", formValues, httpOptions)
+        //return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", formValues, httpOptions)
+        return this.httpClient.post<IArtist>("http://localhost:3000/api/artists", formValues, httpOptions)
+
         // .pipe(
         //     catchError(this.handleError)
         // )
@@ -63,16 +80,20 @@ export class ArtistService {
     }
 
     updateArtist(formValues, id) {
-        let artistToUpdate = this.getArtist(id);
-        artistToUpdate.name = formValues.name;
-        artistToUpdate.genre = formValues.genre;
-        artistToUpdate.description = formValues.description;
-        artistToUpdate.country = formValues.country;
-        artistToUpdate.link = formValues.link;
-        if(formValues.songs) artistToUpdate.songs = formValues.songs;
-        artistToUpdate.album = formValues.album;
+        this.getArtist(id).subscribe(
+            (artist: IArtist) => {
+                this.artistToUpdate = artist
+            }
+        );
+        this.artistToUpdate.name = formValues.name;
+        this.artistToUpdate.genre = formValues.genre;
+        this.artistToUpdate.description = formValues.description;
+        this.artistToUpdate.country = formValues.country;
+        this.artistToUpdate.link = formValues.link;
+        if(formValues.songs) this.artistToUpdate.songs = formValues.songs;
+        this.artistToUpdate.album = formValues.album;
 
-        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", artistToUpdate, httpOptions);
+        return this.httpClient.post<IArtist>("http://www.mocky.io/v2/5aa909ce320000cb2b165aa6?mocky-delay=600ms", this.artistToUpdate, httpOptions);
     }
 
     deleteArtist(id){

@@ -12,7 +12,7 @@ export class ArtistResolver implements Resolve<any> {
 
     resolve(route: ActivatedRouteSnapshot){
         
-       return this.artistService.getArtist(+route.params['id']);
+       return this.artistService.getArtist(route.params['id']);
         
     }
 }
