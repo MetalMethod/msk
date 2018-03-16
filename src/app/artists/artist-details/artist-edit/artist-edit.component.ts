@@ -1,8 +1,10 @@
+import { CountriesService } from './../../shared/countries/countries.service';
 import { ArtistService } from './../../shared/artist.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { IArtist } from './../../shared/artist.model';
+import { ICountry } from '../../shared/countries/countries.model';
 
 
 @Component({
@@ -16,11 +18,14 @@ export class ArtistEditComponent{
     isDirty:boolean = true
     id:string
     artist: IArtist
-    constructor(private router:Router, private artistService: ArtistService, private route:ActivatedRoute){
+    countriesList: ICountry[]
+    constructor(private router:Router, private artistService: ArtistService, private route:ActivatedRoute, private countries: CountriesService){
         
     }
     
     ngOnInit(){
+        this.getCountries()
+
         this.id = this.route.snapshot.params['id']
         this.artist = this.artistService.getArtistToUpdate()
         
@@ -32,6 +37,13 @@ export class ArtistEditComponent{
         if(this.artist.songs === null || this.artist.songs === undefined) {
             this.artist.songs = {song1: '', song2: '' }
         }
+    }
+
+    getCountries(){
+        this.countries.getCountries().subscribe(
+            (c: ICountry[]) => {
+                this.countriesList = c;
+            })
     }
 
     editArtist(formValues){

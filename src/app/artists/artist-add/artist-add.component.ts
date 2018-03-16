@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { element } from 'protractor';
+import { ICountry } from './../shared/countries/countries.model';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArtistService } from './../shared/artist.service';
+import { CountriesService } from '../shared/countries/countries.service';
 
 
 @Component({
@@ -9,12 +12,23 @@ import { ArtistService } from './../shared/artist.service';
 
 })
 
-export class ArtistAddComponent{
+export class ArtistAddComponent implements OnInit{
 
     isDirty:boolean = true
+    countriesList: ICountry[]
+    
+    constructor(private router:Router, private artistService: ArtistService, private countries: CountriesService){
+        
+    }
+    
+    ngOnInit(){
+        this.getCountries();
+    }
 
-    constructor(private router:Router, private artistService: ArtistService){
-
+    private getCountries() {
+        this.countries.getCountries().subscribe((c: ICountry[]) => {
+            this.countriesList = c;
+        });
     }
 
     addArtist(formValues){
@@ -27,7 +41,6 @@ export class ArtistAddComponent{
         this.artistService.saveArtist(formValues).subscribe(
             response => {
                 resp = response
-                console.log(resp)
                 return response;
             }
         );

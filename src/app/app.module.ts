@@ -48,6 +48,7 @@ import { ModalTriggerDirective } from './common/simple-modal/modal-trigger.direc
 // DEPRECATED import { HttpModule } from '@angular/http';
 import { HttpClientModule } from "@angular/common/http";
 import { ArtistResolver } from './artists/artist-details/artist-resolver.service';
+import { CountriesService } from './artists/shared/countries/countries.service';
 
 @NgModule({
     imports: [
@@ -82,7 +83,8 @@ import { ArtistResolver } from './artists/artist-details/artist-resolver.service
         AuthService,
         ToastrService,
         SimpleModalComponent,
-        AuthGuard
+        AuthGuard,
+        CountriesService
 
     ],
     bootstrap: [MskAppComponent]
