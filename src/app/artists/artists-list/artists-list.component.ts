@@ -57,7 +57,7 @@ export class ArtistsListComponent implements OnInit, OnChanges{
 }
 
 function sortByDateAsc(a1: IArtist, a2: IArtist){
-    if(a1.id > a2.id) return 1
+    if(a1.id < a2.id) return 1
     else if(a1.dateAdded === a2.dateAdded) return 0
     else return -1
 }
