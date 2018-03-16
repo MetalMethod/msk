@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { IArtist } from './../../shared/artist.model';
 import { ICountry } from '../../shared/countries/countries.model';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ArtistEditComponent{
     id:string
     artist: IArtist
     countriesList: ICountry[]
-    constructor(private router:Router, private artistService: ArtistService, private route:ActivatedRoute, private countries: CountriesService){
+    constructor(private router:Router, private artistService: ArtistService, private route:ActivatedRoute, private countries: CountriesService, private toatr: ToastrService){
         
     }
     
@@ -50,6 +51,7 @@ export class ArtistEditComponent{
         this.artistService.updateArtist(formValues, this.id).subscribe( ()=>{
             this.router.navigate(['/artists' + '/' + this.id.toString()])
             this.isDirty = false
+            this.toatr.success("Artist Updated.")
         });
     }
 

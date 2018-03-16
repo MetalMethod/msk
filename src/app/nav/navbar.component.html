@@ -1,6 +1,6 @@
 
 <!-- if user is not logged, the navbar is hidden -->
-<nav *ngIf="isAuthenticated()" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav *ngIf="auth.isLoggedIn()" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">m.sk</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,33 +13,13 @@
             </li>
         </ul>
 
-        <!-- <div id ="sortButtons">
-            <div class="sortLabel" >Sort by: </div> 
-
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">     
-                <label class="btn btn-outline-secondary active">
-                    <input (click)="sortBy='date'" type="radio" name="options" id="option1" autocomplete="off" checked=""> Date
-                </label>
-                <label class="btn btn-outline-secondary">
-                    <input (click)="sortBy='name'" type="radio" name="options" id="option2" autocomplete="off"> Name
-                </label>
-                <label class="btn btn-outline-secondary">
-                    <input (click)="sortBy='genre'"  type="radio" name="options" id="option3" autocomplete="off"> Genre
-                </label>
-            </div>
-        </div> -->
-
         <form id="searchForm" (ngSubmit)="searchAll(searchTerm)" class="form-inline my-2 my-lg-0">
             <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control mr-sm-2" placeholder="Search" type="text">
-            <!-- <button class="btn btn-secondary my-2 my-sm-0" data-toggle="modal" data-target="#searchResults" modal-trigger [searchData]="receiveData($event)">Search</button> -->
             <button class="btn btn-secondary my-2 my-sm-0" data-toggle="modal" data-target="#searchResults" modal-trigger >Search</button>
         </form>
         
         <div id="userInfo">
-            
-            <!-- <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']" class="btn btn-link">Login</a> -->
-          
-            <div *ngIf="isAuthenticated()">
+            <div *ngIf="auth.isLoggedIn()">
                 <a [routerLink]="['user/profile']" class="btn btn-link">{{auth.currentUser.userName}}</a>
                 <button id="cancelBtn" type="button" (click)="logout()" [routerLink]="['user/login']"  class="btn btn-outline-secondary" >logout</button>
             </div>

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArtistService } from './../shared/artist.service';
 import { CountriesService } from '../shared/countries/countries.service';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     templateUrl:'artist-add.component.html',
@@ -17,7 +17,7 @@ export class ArtistAddComponent implements OnInit{
     isDirty:boolean = true
     countriesList: ICountry[]
     
-    constructor(private router:Router, private artistService: ArtistService, private countries: CountriesService){
+    constructor(private router:Router, private artistService: ArtistService, private countries: CountriesService, private toastr: ToastrService){
         
     }
     
@@ -41,6 +41,7 @@ export class ArtistAddComponent implements OnInit{
         this.artistService.saveArtist(formValues).subscribe(
             response => {
                 resp = response
+                this.toastr.success("Artist Added.")
                 return response;
             }
         );

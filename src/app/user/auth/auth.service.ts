@@ -15,28 +15,50 @@ const httpOptions = {
     })
 }
 
+/// @name AuthService
+///  global service for authentication
+/// 
 @Injectable()
 export class AuthService {
 
     public currentUser: any
-
+    ///# Internal status of user
+    ///# @private
+    ///# @type {boolean}
     private loggedIn: boolean = false;
 
+    ///# status for authentication error message
+    ///# @private
+    ///# @type {boolean}
     private unauthorized: boolean = false;
 
+    ///# @name getUnauthorized
+    ///# returns unauthorized state
+    ///# @public
+    ///# @returns {any} - 
     public getUnauthorized() {
         return this.unauthorized;
     }
 
+    ///# @name isLoggedIn
+    ///# returns user state
+    ///# @public
+    ///# @returns {{boolean}} - 
     public isLoggedIn(): boolean {
         return this.loggedIn
     }
 
+    ///# Creates an instance of AuthService.
+    ///# @param {Router} router - 
+    ///# @param {HttpClient} httpClient - 
     constructor(private router: Router, private httpClient: HttpClient) {
-
         this.currentUser = {}
     }
 
+    ///# @name login
+    ///# make request to server for user login
+    ///# @param {string} userName - 
+    ///# @param {string} password - 
     login(userName: string, password: string) {
         let userInfo = "\{\"username\":\"" + userName.toString() + "\"\, \"password\"\:\"" + password.toString() + "\"\}";
 
@@ -48,41 +70,23 @@ export class AuthService {
                     this.currentUser.userName = userName;
                     this.unauthorized = false
                     this.router.navigate(['artists'])
-                    //console.log(this.currentUser.id)
-                } 
+                }
             },
             (resp: HttpErrorResponse) => {
                 this.unauthorized = true;
-                //console.log(resp)
             }
         )
     }
-
-    // login(userName: string, password: string){
-    //     if(userName !== '' && password != ''){
-    //         this.loggedIn = true;
-    //     }
-
-    //     //REMOVE THIS, this user date must be added on login, but must come from the server
-    //     this.currentUser = {
-    //         id:"dfwdve1",
-    //         userName: userName,
-    //         password: password,
-    //         firstName: 'Igor',
-    //         lastName: 'Busquets',
-    //         email: 'igor@busquets.com'
-    //         }
-    // }
-
+    ///# @name logout
+    ///# logout the user
     logout() {
         this.loggedIn = false;
     }
 
-    isAuthenticated(): boolean {
-        //return !!this.currentUser;
-        return this.isLoggedIn()
-    }
-
+    ///# @name updateCurrentUser
+    ///# Stores the current user for the profile page
+    ///# @param {string} firstName - 
+    ///# @param {string} lastName - 
     updateCurrentUser(firstName: string, lastName: string) {
         //mock implementation
         this.currentUser.firstName = firstName

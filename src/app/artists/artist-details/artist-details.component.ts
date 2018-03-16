@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArtistService } from './../shared/artist.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { IArtist } from './../shared/artist.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'artist-details',
@@ -15,13 +16,11 @@ export class ArtistDetailsComponent implements OnInit{
     //my own implementation
     private currentId: number
 
-    constructor(private artistService:ArtistService, private route:ActivatedRoute, private router:Router){ 
+    constructor(private artistService:ArtistService, private route:ActivatedRoute, private router:Router, private toastr: ToastrService){ 
     }
 
     ngOnInit(){
-        //+ casts to number
         this.route.params.forEach((params: Params) =>{
-           // this.artist = this.artistService.getArtist(+params['id'])
            this.artist = this.route.snapshot.data['artist']
         })
 
@@ -33,9 +32,12 @@ export class ArtistDetailsComponent implements OnInit{
     }
 
     deleteArtist(){
-        //console.log("Del button clicked")
         let id = this.artist.id;
-        this.artistService.deleteArtist(id).subscribe();
+        this.artistService.deleteArtist(id).subscribe(
+            ()=>{
+                this.toastr.success("Artist Deleted.")
+            }
+        );
         this.router.navigate(['/artists'])
     }
 }
