@@ -40,7 +40,7 @@
             <!-- <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']" class="btn btn-link">Login</a> -->
           
             <div *ngIf="isAuthenticated()">
-                <a [routerLink]="['user/profile']" class="btn btn-link">{{auth.currentUser.firstName}}</a>
+                <a [routerLink]="['user/profile']" class="btn btn-link">{{auth.currentUser.userName}}</a>
                 <button id="cancelBtn" type="button" (click)="logout()" [routerLink]="['user/login']"  class="btn btn-outline-secondary" >logout</button>
             </div>
         </div>

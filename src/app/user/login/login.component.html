@@ -10,6 +10,7 @@
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off" novalidate >
             <div class="form-group" [ngClass]="{'error': loginForm.controls.userName?.invalid && loginForm.controls.userName?.touched}">
                 <label for="userName">User Name:</label>
+                <em *ngIf="authService.getUnauthorized()">Wrong username or password</em>
                 <em *ngIf="loginForm.controls.userName?.invalid && (loginForm.controls.userName?.touched || mouseoverLogin)">Required</em>
                 <input (ngModel)="userName" name="userName" required id="userName" type="text" class="form-control" placeholder="User Name..." />
             </div>
@@ -27,3 +28,6 @@
     </div>
     <div class="col-md-4"></div>
 </div>
+
+
+

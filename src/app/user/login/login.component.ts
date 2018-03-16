@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './../auth/auth.service';
 import { Router } from '@angular/router';
+import { IUser } from '../auth/user.model';
 
 
 @Component({
@@ -10,14 +11,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent{
 
+    unauthorized: boolean = false;
+
     constructor(private authService:AuthService, private router:Router){
 
     }
 
     login(formValues){
-        //this.authService.loginUser(formValues.userName, formValues.password)
         this.authService.login(formValues.userName, formValues.password)
-        this.router.navigate(['artists'])
     }
 
     cancel(){

@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import  {userRoutes } from './user.routes';
+import { AuthGuard } from './auth/auth.guard';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -14,13 +15,14 @@ import { LoginComponent } from './login/login.component';
         BrowserModule,
         RouterModule.forChild(userRoutes),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     declarations: [
         ProfileComponent,
         LoginComponent
     ],
     providers: [
+        AuthGuard
 
     ]
 })
