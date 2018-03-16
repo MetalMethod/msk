@@ -28,6 +28,7 @@ export class ArtistDetailsComponent implements OnInit{
     }
 
     editDetails(){
+        this.artistService.setArtistToUpdate(this.artist)
         this.router.navigate(['/artists' + '/' + this.artist.id.toString() + '/edit'])
     }
 

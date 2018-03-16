@@ -21,14 +21,9 @@ export class ArtistEditComponent{
     }
     
     ngOnInit(){
-        //+ casts to number
         this.id = this.route.snapshot.params['id']
-        this.artistService.getArtist(this.id).subscribe(
-            (artist: IArtist) => {
-                this.artist = artist;
-            })
+        this.artist = this.artistService.getArtistToUpdate()
         
-
         if(this.artist.country === null || this.artist.country === undefined) this.artist.country = ''
         if(this.artist.album === null || this.artist.album === undefined) this.artist.album = ''
         if(this.artist.description === null || this.artist.description === undefined) this.artist.description = ''
