@@ -1,5 +1,7 @@
 <div class="row">
-    <div class="col-md-4"><h3>Edit Artist</h3></div>
+    <div class="col-md-4">
+        <h3>Edit Artist</h3>
+    </div>
     <div class="col-md-4"></div>
     <div class="col-md-4"></div>
 </div>
@@ -10,68 +12,55 @@
             <div class="form-group" [ngClass]="{'error': editArtistForm.controls.name?.invalid && editArtistForm.controls.name?.touched}">
                 <label for="artistName">Name*:</label>
                 <em *ngIf="editArtistForm.controls.name?.invalid && (editArtistForm.controls.name?.touched)">Required</em>
-                <input [(ngModel)]="artist.name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your artist..." />
+                <input [(ngModel)]="artist.name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your artist..."/>
             </div>
             <div class="form-group" [ngClass]="{'error': editArtistForm.controls.genre?.invalid && editArtistForm.controls.genre?.touched}">
                 <label for="artistGenre">Genre*:</label>
                 <em *ngIf="editArtistForm.controls.genre?.invalid && (editArtistForm.controls.genre?.touched)">Required</em>
-                <input [(ngModel)]="artist.genre" name="genre" required id="artistGenre" type="text" class="form-control" placeholder="Type a genre..." />
+                <input [(ngModel)]="artist.genre" name="genre" required id="artistGenre" type="text" class="form-control" placeholder="Type a genre..."/>
             </div>
             <div class="form-group" [ngClass]="{'error': editArtistForm.controls.country?.invalid && editArtistForm.controls.country?.touched}">
                 <label for="artistCountry">Country:</label>
                 <em *ngIf="editArtistForm.controls.country?.invalid && (editArtistForm.controls.country?.touched)">Required</em>
-            
-                <!--  -->
-                <select [(ngModel)]="artist.country" name="country" id="countrySelect" class="form-control  notRequired" >
-                    <option value="" >Select country...</option>
-                    <option *ngFor="let country of countriesList" value="{{country.name}}" >{{country.name}}</option>
+                <select [(ngModel)]="artist.country" name="country" id="countrySelect" class="form-control  notRequired">
+                    <option value="">Select country...</option>
+                    <option *ngFor="let country of countriesList" value="{{country.name}}">{{country.name}}</option>
                 </select>
-                <!--  -->
             </div>
-
-        </div>   
-
+        </div>
         <div class="col-md-4">
-            
             <div class="form-group">
                 <label for="artistDescription">Description:</label>
-                <textarea [(ngModel)]="artist.description" name="description" class="form-control notRequired" id="descriptionTextarea" rows="4" placeholder="Say what do you like about it... "></textarea>
+                <textarea [(ngModel)]="artist.description" name="description" class="form-control notRequired" id="descriptionTextarea" rows="4"
+                    placeholder="Say what do you like about it... "></textarea>
             </div>
-
             <div id="artistLink" class="form-group">
                 <label for="artistLink">Link:</label>
                 <input [(ngModel)]="artist.link" name="link" type="text" class="form-control notRequired" placeholder="URL..." />
             </div>
-
         </div>
-
         <div class="col-md-4">
-
             <div ngModelGroup="songs">
                 <div class="form-group">
                     <label for="artistSong1">Remarkable Song:</label>
-                    <input [(ngModel)]="artist.songs.song1" name="song1"  type="text" class="form-control notRequired" placeholder="Song Title.." />
+                    <input [(ngModel)]="artist.songs.song1" name="song1" type="text" class="form-control notRequired" placeholder="Song Title.."/>
                 </div>
                 <div class="form-group">
                     <label for="artistSong1">Another Song:</label>
-                    <input [(ngModel)]="artist.songs.song2" name="song2"  type="text" class="form-control notRequired" placeholder="Song Title.." />
+                    <input [(ngModel)]="artist.songs.song2" name="song2" type="text" class="form-control notRequired" placeholder="Song Title.."
+                    />
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="artistAlbum">Best Album:</label>
-                <input [(ngModel)]="artist.album" name="album"  type="text" class="form-control notRequired" placeholder="Album Title.." />
+                <input [(ngModel)]="artist.album" name="album" type="text" class="form-control notRequired" placeholder="Album Title.." />
             </div>
         </div>
-    
-</div>
-
-
+    </div>
     <div class="row">
         <div class="col-md-12">
             <button id="saveBtn" type="submit" [disabled]="editArtistForm.invalid" class="btn btn-outline-primary col-md-10">Save</button>
             <button id="cancelBtn" type="button" class="btn btn-secondary col-md-2" (click)="cancel()">Cancel</button>
         </div>
     </div>
-
 </form>

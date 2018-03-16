@@ -7,48 +7,71 @@ import { CountriesService } from '../shared/countries/countries.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-    templateUrl:'artist-add.component.html',
+    templateUrl: 'artist-add.component.html',
     styleUrls: ['artist-add.component.css']
 
 })
 
-export class ArtistAddComponent implements OnInit{
+/// @name ArtistAddComponent
+/// Component responsible to pass form data for a new artist to the artist.service
+/// @implements {OnInit}
+export class ArtistAddComponent implements OnInit {
 
-    isDirty:boolean = true
+    /// checks if input field is dirty, used for validation messages
+    /// @type {boolean}
+    isDirty: boolean = true
+
+
+    /// container for the coutries list retrieved from the server
+    /// @type {ICountry[]}
     countriesList: ICountry[]
-    
-    constructor(private router:Router, private artistService: ArtistService, private countries: CountriesService, private toastr: ToastrService){
-        
+
+    /// Creates an instance of ArtistAddComponent.
+    /// @param {Router} router - 
+    /// @param {ArtistService} artistService - 
+    /// @param {CountriesService} countries - 
+    /// @param {ToastrService} toastr - 
+    constructor(private router: Router, private artistService: ArtistService, private countries: CountriesService, private toastr: ToastrService) {
     }
-    
-    ngOnInit(){
+
+    /// @name ngOnInit
+    /// executes when component is initialized
+    ngOnInit() {
         this.getCountries();
     }
 
+    /// @name getCountries
+    /// makes the call to coutries services and retrieves the reultiing list 
+    /// @private
     private getCountries() {
         this.countries.getCountries().subscribe((c: ICountry[]) => {
             this.countriesList = c;
         });
     }
 
-    addArtist(formValues){
+    /// @name addArtist
+    /// passes data to artist service for adding new artist
+    /// @param {any} formValues - values from the form
+    addArtist(formValues) {
         formValues.dateAdded = new Date();
-        if(!formValues.songs.song1 && !formValues.songs.song2) formValues.songs = null;
-               
+        if (!formValues.songs.song1 && !formValues.songs.song2) formValues.songs = null;
+
         this.isDirty = false
-        
-        let resp:any;
+
+        let resp: any;
         this.artistService.saveArtist(formValues).subscribe(
             response => {
                 resp = response
-                this.toastr.success("Artist Added.")
+                this.toastr.success("Artist Added.use")
                 return response;
             }
         );
         this.router.navigate(['/artists'])
     }
 
-    cancel(){
+    /// @name cancel
+    /// cancel button action
+    cancel() {
         this.router.navigate(['/artists'])
     }
 

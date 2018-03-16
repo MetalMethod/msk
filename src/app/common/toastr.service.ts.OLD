@@ -1,8 +1,8 @@
 
 //Toastr dependencies
-//import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { ToastrService } from 'ngx-toastr';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 import { Injectable } from '@angular/core';

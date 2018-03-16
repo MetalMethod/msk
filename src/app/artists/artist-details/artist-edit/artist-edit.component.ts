@@ -7,7 +7,6 @@ import { IArtist } from './../../shared/artist.model';
 import { ICountry } from '../../shared/countries/countries.model';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
     templateUrl:'artist-edit.component.html',
     styleUrls: ['artist-edit.component.css']
@@ -17,11 +16,14 @@ import { ToastrService } from 'ngx-toastr';
 export class ArtistEditComponent{
 
     isDirty:boolean = true
+
     id:string
+
     artist: IArtist
+
     countriesList: ICountry[]
+
     constructor(private router:Router, private artistService: ArtistService, private route:ActivatedRoute, private countries: CountriesService, private toatr: ToastrService){
-        
     }
     
     ngOnInit(){

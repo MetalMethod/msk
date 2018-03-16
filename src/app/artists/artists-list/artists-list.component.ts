@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core'
 import { ArtistService } from './../shared/artist.service';
-//import { ToastrService } from './../../common/toastr.service';
 import { ActivatedRoute } from '@angular/router';
 import { IArtist } from './../shared/artist.model';
 
@@ -14,17 +13,15 @@ export class ArtistsListComponent implements OnInit, OnChanges{
     
     artists:IArtist[]
     visibleArtist: IArtist[]
+    sortBy: string
     errorMessage: any
-    //sortBy: string = 'dateAdded'
 
-    //injecting the service
-    // constructor( private artistService: ArtistService, private  toastrService: ToastrService){
     constructor( private artistService: ArtistService, private route:ActivatedRoute){
 
     }
     
     ngOnInit(){
-        //event callend when the component is first loaded
+        //event called when the component is first loaded
        this.artistService.getArtists().subscribe(
             (artists: IArtist[]) => {
                 this.artists = artists;
@@ -36,16 +33,9 @@ export class ArtistsListComponent implements OnInit, OnChanges{
     }
 
     handleThumbnailClick(artistName){
-        //this.toastrService.warning(artistName)
-        console.log("click")
     }
 
-    // @Input() sortBy: string
-    sortBy: string
-
     ngOnChanges(){
-        // console.log(this.sortBy)
-        // this.sortArtists(this.sortBy)
     }
 
     sortArtists(filterValue: string){
