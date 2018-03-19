@@ -9,32 +9,45 @@ import { ToastrService } from 'ngx-toastr';
     templateUrl: 'artist-details.component.html',
     styleUrls: ['artist-details.component.css']
 })
-export class ArtistDetailsComponent implements OnInit{
 
+/// @name ArtistDetailsComponent
+/// This component shows the details info about a artist
+/// @implements {OnInit}
+export class ArtistDetailsComponent implements OnInit {
+
+    /// Holds the data to show for the current artist
+    /// @type {IArtist}
     artist: IArtist
 
-    //my own implementation
-    private currentId: number
-
-    constructor(private artistService:ArtistService, private route:ActivatedRoute, private router:Router, private toastr: ToastrService){ 
+    /// Creates an instance of ArtistDetailsComponent.
+    /// @param {ArtistService} artistService - 
+    /// @param {ActivatedRoute} route - 
+    /// @param {Router} router - 
+    /// @param {ToastrService} toastr - 
+    constructor(private artistService: ArtistService, private route: ActivatedRoute, private router: Router, private toastr: ToastrService) {
     }
 
-    ngOnInit(){
-        this.route.params.forEach((params: Params) =>{
-           this.artist = this.route.snapshot.data['artist']
+    /// @name ngOnInit
+    /// Retrieves the data to be shown
+    ngOnInit() {
+        this.route.params.forEach((params: Params) => {
+            this.artist = this.route.snapshot.data['artist']
         })
-
     }
 
-    editDetails(){
+    /// @name editDetails
+    /// Action for the edit button
+    editDetails() {
         this.artistService.setArtistToUpdate(this.artist)
         this.router.navigate(['/artists' + '/' + this.artist.id.toString() + '/edit'])
     }
 
-    deleteArtist(){
+    /// @name deleteArtist
+    /// Action for delete artist button
+    deleteArtist() {
         let id = this.artist.id;
         this.artistService.deleteArtist(id).subscribe(
-            ()=>{
+            () => {
                 this.toastr.success("Artist Deleted.")
             }
         );

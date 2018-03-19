@@ -10,8 +10,6 @@ em{
 .error :-moz-placeholder { color: #e44848;}
 .error :-ms-input-placeholder { color: #e44848;}
 
-
-
 @media screen and (min-width: 1200px) {
     #saveBtn{   
         width: 75%;
@@ -29,11 +27,8 @@ em{
 }
 
 #cancelBtn{
-    /* width: 77px; */
     width: 100%;
-    
     margin-top: 20px;
-    /* margin-left: 5px; */
 }
 
 .btn-outline-primary{margin-top: 10px;}
@@ -48,7 +43,6 @@ input {
 
 #countrySelect, #descriptionTextarea{
     max-width: 317px;
-    
 }
 
 #artistLink {

@@ -1,56 +1,60 @@
 <div class="container">
-    
-    <!-- <img [src]="artist?.imageUrl" [alt]="artist?.name" class="artist-image"> -->
-  
     <div class="row">
         <div class="col-md-4">
             <div class="backLink">
-                <a [routerLink] = "['/artists']">Back to your artists list</a>
-              </div>
+                <a [routerLink]="['/artists']">Back to your artists list</a>
+            </div>
         </div>
-          <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center">
             <h4>{{artist?.name | uppercase}} </h4>
             <hr>
-          </div>
-      <div class="col-md-4"></div>
-    </div>
-    
-    <div class="row ">
-        <div class="col-md-3"></div>
-        
-        <div class="col-md-6 buttonsBar d-flex justify-content-center">
-            <button id="editBtn" class="btn btn-outline-primary" type="button" (click) ="editDetails()">Edit Artist</button>
-            <button id="delBtn" class="btn btn-outline-danger" type="button" (click) ="deleteArtist()">Delete Artist</button>
         </div>
-
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row ">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 buttonsBar d-flex justify-content-center">
+            <button id="editBtn" class="btn btn-outline-primary" type="button" (click)="editDetails()">Edit Artist</button>
+            <button id="delBtn" class="btn btn-outline-danger" type="button" (click)="deleteArtist()">Delete Artist</button>
+        </div>
         <div class="col-md-3"></div>
     </div>
-
     <div class="row ">
-      <div class="col-md-3"></div>
-      
-      <div class="col-md-3 infoBg">
-        
-        <div class="genreBadge"><span class="badge badge-light">{{artist?.genre | uppercase}}</span></div>
-
-        <div class="songClass" *ngIf="artist.songs" >Remarkable Song: <br><span class="dataTxt">{{artist?.songs.song1}}</span></div>
-        <div class="songClass" *ngIf="artist.songs" >Another Good Song: <br><span class="dataTxt">{{artist?.songs.song2}}</span></div>
-        
-        <div class="songClass" *ngIf="artist.album" >Best Album: <br><span class="dataTxt">{{artist?.album}}</span></div>
-      </div>
-      <div class="col-md-3 infoBg">
-
-       
-
-        <div *ngIf="artist.country" class="countryTxt" >Country: <br><span class="dataTxt">{{artist?.country}}</span></div>
-        <div *ngIf="artist.description"> Description:<br /> <span class="dataTxt">{{artist?.description}}</span></div>
-        <div *ngIf="artist.link" class="linksBlock">Link:<br><span class="dataTxt">{{artist?.link}}</span></div>
-
-        <div *ngIf="artist.dateAdded" class="dateBlock">Date Added:<br><span class="dataTxt">{{artist.dateAdded | date:'dd/MM/yyyy' }}</span></div>
-
+        <div class="col-md-3"></div>
+        <div class="col-md-3 infoBg">
+            <div class="genreBadge">
+                <span class="badge badge-light">{{artist?.genre | uppercase}}</span>
+            </div>
+            <div class="songClass" *ngIf="artist.songs">Remarkable Song:
+                <br>
+                <span class="dataTxt">{{artist?.songs.song1}}</span>
+            </div>
+            <div class="songClass" *ngIf="artist.songs">Another Good Song:
+                <br>
+                <span class="dataTxt">{{artist?.songs.song2}}</span>
+            </div>
+            <div class="songClass" *ngIf="artist.album">Best Album:
+                <br>
+                <span class="dataTxt">{{artist?.album}}</span>
+            </div>
+        </div>
+        <div class="col-md-3 infoBg">
+            <div *ngIf="artist.country" class="countryTxt">Country:
+                <br>
+                <span class="dataTxt">{{artist?.country}}</span>
+            </div>
+            <div *ngIf="artist.description"> Description:
+                <br />
+                <span class="dataTxt">{{artist?.description}}</span>
+            </div>
+            <div *ngIf="artist.link" class="linksBlock">Link:
+                <br>
+                <span class="dataTxt">{{artist?.link}}</span>
+            </div>
+            <div *ngIf="artist.dateAdded" class="dateBlock">Date Added:
+                <br>
+                <span class="dataTxt">{{artist.dateAdded | date:'dd/MM/yyyy' }}</span>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
     </div>
-
-    <div class="col-md-3"></div>
-
-</div>
-  

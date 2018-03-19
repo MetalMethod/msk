@@ -1,13 +1,8 @@
 <div>
-    <!-- <h1><strong>m.sk</strong></h1> -->
-    <hr/>
-
-
+    <hr>
     <div class="row">
         <div id="sortButtons" class="col-md-12 d-flex justify-content-center">
-
             <div class="sortLabel">Sort by: </div>
-
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label (click)="sortArtists('date')" class="btn btn-outline-secondary active">
                     <input  type="radio" name="options" id="option1" autocomplete="off" checked=""> Date
@@ -21,10 +16,9 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-4" *ngFor="let artist of artists">
-            <artist-thumbnail (click)="handleThumbnailClick(artist.name)" [artist]="artist"></artist-thumbnail>
+            <artist-thumbnail [artist]="artist"></artist-thumbnail>
         </div>
     </div>
 </div>

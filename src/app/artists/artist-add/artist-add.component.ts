@@ -9,7 +9,6 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
     templateUrl: 'artist-add.component.html',
     styleUrls: ['artist-add.component.css']
-
 })
 
 /// @name ArtistAddComponent
@@ -20,7 +19,6 @@ export class ArtistAddComponent implements OnInit {
     /// checks if input field is dirty, used for validation messages
     /// @type {boolean}
     isDirty: boolean = true
-
 
     /// container for the coutries list retrieved from the server
     /// @type {ICountry[]}
@@ -70,7 +68,7 @@ export class ArtistAddComponent implements OnInit {
     }
 
     /// @name cancel
-    /// cancel button action
+    /// Action for the cancel button
     cancel() {
         this.router.navigate(['/artists'])
     }
