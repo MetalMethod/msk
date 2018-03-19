@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutes } from './routes';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './errors/404.component';
+import { ErrorResolver } from './errors/errors-resolver.service';
 
 //User and Authentication
 import { AuthService } from './user/auth/auth.service';
@@ -70,6 +71,7 @@ import {
         ArtistService,
         ArtistResolver,
         ArtistsListResolver,
+        ErrorResolver,
         AuthService,
         ToastrService,
         SimpleModalComponent,
