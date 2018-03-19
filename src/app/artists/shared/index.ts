@@ -1,4 +1,3 @@
-//export * from './artist-route-activator.service'
+//Barrel for shared folder
 export * from './artist.service'
-
 export * from './artist.model'

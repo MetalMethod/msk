@@ -1,3 +1,4 @@
+/// Model for artist
 export interface IArtist{
     id: string
     name: string
@@ -14,15 +15,4 @@ export interface IArtist{
     user: string
     dateAdded: Date
 }
-
-// export interface IReview {
-//     id: number
-//     rating: number
-//     opinion: string
-//     referenceUrl: string
-//     user: string
-//     dateAdded: Date
-//     recommendTo: string[]
-// }
-
 
