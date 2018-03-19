@@ -1,5 +1,7 @@
 <div class="row">
-    <div class="col-md-4"><h3>Add Artist</h3></div>
+    <div class="col-md-4">
+        <h3>Add Artist</h3>
+    </div>
     <div class="col-md-4"></div>
     <div class="col-md-4"></div>
 </div>
@@ -10,23 +12,25 @@
             <div class="form-group" [ngClass]="{'error': addArtistForm.controls.name?.invalid && addArtistForm.controls.name?.touched}">
                 <label for="artistName">Name*:</label>
                 <em *ngIf="addArtistForm.controls.name?.invalid && (addArtistForm.controls.name?.touched)">Required</em>
-                <input (ngModel)="name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your artist..." />
+                <input (ngModel)="name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your artist..."
+                />
             </div>
             <div class="form-group" [ngClass]="{'error': addArtistForm.controls.genre?.invalid && addArtistForm.controls.genre?.touched}">
                 <label for="artistGenre">Genre*:</label>
                 <em *ngIf="addArtistForm.controls.genre?.invalid && (addArtistForm.controls.genre?.touched)">Required</em>
-                <input (ngModel)="genre" name="genre" required id="artistGenre" type="text" class="form-control" placeholder="Type a genre..." />
+                <input (ngModel)="genre" name="genre" required id="artistGenre" type="text" class="form-control" placeholder="Type a genre..."
+                />
             </div>
             <div class="form-group" [ngClass]="{'error': addArtistForm.controls.country?.invalid && addArtistForm.controls.country?.touched}">
                 <label for="artistCountry">Country:</label>
                 <em *ngIf="addArtistForm.controls.country?.invalid && (addArtistForm.controls.country?.touched)">Required</em>
-                <select (ngModel)="country" name="country" id="countrySelect" class="form-control  notRequired" >
-                        <option value="" >Select country...</option>
-                        <option *ngFor="let country of countriesList" value="{{country.name}}" >{{country.name}}</option>
+                <select (ngModel)="country" name="country" id="countrySelect" class="form-control  notRequired">
+                    <option value="">Select country...</option>
+                    <option *ngFor="let country of countriesList" value="{{country.name}}">{{country.name}}</option>
                 </select>
             </div>
-        </div>   
-        <div class="col-md-4">        
+        </div>
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="artistDescription">Description:</label>
                 <textarea (ngModel)="description" name="description" class="form-control notRequired" id="descriptionTextarea" rows="4" placeholder="Say what do you like about it... "></textarea>
@@ -40,23 +44,33 @@
             <div ngModelGroup="songs">
                 <div class="form-group">
                     <label for="artistSong1">Remarkable Song:</label>
-                    <input (ngModel)="song1" name="song1"  type="text" class="form-control notRequired" placeholder="Song Title.." />
+                    <input (ngModel)="song1" name="song1" type="text" class="form-control notRequired" placeholder="Song Title.." />
                 </div>
                 <div class="form-group">
                     <label for="artistSong1">Another Song:</label>
-                    <input (ngModel)="song2" name="song2"  type="text" class="form-control notRequired" placeholder="Song Title.." />
+                    <input (ngModel)="song2" name="song2" type="text" class="form-control notRequired" placeholder="Song Title.." />
                 </div>
             </div>
             <div class="form-group">
                 <label for="artistAlbum">Best Album:</label>
-                <input (ngModel)="album" name="album"  type="text" class="form-control notRequired" placeholder="Album Title.." />
+                <input (ngModel)="album" name="album" type="text" class="form-control notRequired" placeholder="Album Title.." />
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <button id="saveBtn" type="submit" [disabled]="addArtistForm.invalid" class="btn btn-outline-primary col-md-10">Save</button>
-            <button id="cancelBtn" type="button" class="btn btn-secondary col-md-2" (click)="cancel()">Cancel</button>
+            <button id="cancelBtn" type="button" data-toggle="modal" modal-trigger data-target="#confirmModal" class="btn btn-secondary col-md-2">Cancel</button>
         </div>
     </div>
 </form>
+
+
+<!-- SIMPLE MODAL FOR SEARCH RESULTS -->
+<simple-modal closeOnBodyClick="true" elementId="confirmModal" title="Cancel">
+    <div class="text-center">
+        <p>Do you want to leave this page without saving the data?</p>
+        <button id="notConfirmBtn" type="button"  class="btn btn-secondary col-md-2" >No</button>
+        <button id="confirmBtn" type="button" class="btn btn-outline-primary col-md-2" (click)="cancel()">Yes</button>
+    </div>
+</simple-modal>

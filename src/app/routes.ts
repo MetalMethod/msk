@@ -14,7 +14,7 @@ import {
 
 // Routes for app module
 export const appRoutes: Routes = [
-    { path: 'artists/add', component: ArtistAddComponent, canDeactivate: ['canDeactivateAddArtist'], canActivate: [AuthGuard] },
+    { path: 'artists/add', component: ArtistAddComponent, canActivate: [AuthGuard] },
     { path: 'artists', component: ArtistsListComponent, resolve: { artists: ArtistsListResolver }, canActivate: [AuthGuard] },
     { path: 'artists/:id', component: ArtistDetailsComponent, resolve: { artist: ArtistResolver }, canActivate: [AuthGuard] },
     { path: 'artists/:id/edit', component: ArtistEditComponent, canActivate: [AuthGuard] },

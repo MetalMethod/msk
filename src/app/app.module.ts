@@ -70,13 +70,11 @@ import {
         ArtistService,
         ArtistResolver,
         ArtistsListResolver,
-        { provide: 'canDeactivateAddArtist', useValue: checkDirtyState },
         AuthService,
         ToastrService,
         SimpleModalComponent,
         AuthGuard,
         CountriesService
-
     ],
     bootstrap: [MskAppComponent]
 })
@@ -84,11 +82,4 @@ import {
 /// @name AppModule
 /// Main module for this app
 export class AppModule {
-}
-
-// temporary function to display alert when form page is left without submit data
-function checkDirtyState(component: ArtistAddComponent) {
-    if (component.isDirty)
-        return window.confirm('You have not added this artist yet, do you really want to cancel?')
-    return true
 }

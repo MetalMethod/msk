@@ -52,3 +52,22 @@ input {
 .notRequired{
     background-color: #c0c0c0;
 }
+
+/* MODAL */
+#notConfirmBtn{
+    margin: 0px;
+}
+
+#confirmBtn{
+    margin: 0px 0px 0px 20px; 
+}
+
+@media screen and (max-width: 400px) {
+    #notConfirmBtn{
+        margin: 0px; 
+    }
+
+    #confirmBtn{
+        margin: 20px 0px 0px 0px; 
+    }
+}

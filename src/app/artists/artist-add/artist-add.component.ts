@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ArtistService } from './../shared/artist.service';
 import { CountriesService } from '../shared/countries/countries.service';
 import { ToastrService } from 'ngx-toastr';
+import { SimpleModalComponent } from './../../common/simple-modal/simple-modal.component';
 
 @Component({
     templateUrl: 'artist-add.component.html',
@@ -29,8 +30,13 @@ export class ArtistAddComponent implements OnInit {
     /// @param {ArtistService} artistService - 
     /// @param {CountriesService} countries - 
     /// @param {ToastrService} toastr - 
-    constructor(private router: Router, private artistService: ArtistService, private countries: CountriesService, private toastr: ToastrService) {
-    }
+    constructor( 
+        private router: Router, 
+        private artistService: ArtistService, 
+        private countries: CountriesService, 
+        private toastr: ToastrService,
+        private modal: SimpleModalComponent
+    ) { }
 
     /// @name ngOnInit
     /// executes when component is initialized
