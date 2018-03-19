@@ -1,3 +1,4 @@
+/// model for the User
 export interface IUser{
     userName: string
     password: string

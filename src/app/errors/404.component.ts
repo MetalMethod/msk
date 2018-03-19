@@ -1,23 +1,22 @@
 import { Component } from '@angular/core'
 
 @Component({
-  template: `
+    template: `
     <h1 class="errorMessage">error 404</h1>
     <h3 class="errorMessage">You're lost...</h3>
-  `,
-  styles: [`
+    `,
+    styles: [`
     .errorMessage { 
-      margin-top:20px; 
-      text-align: center; 
-      color:#CCCCCC;
-    },
-    
+        margin-top:20px; 
+        text-align: center; 
+        color:#CCCCCC;
+    }
     
     `]
 })
-export class Error404Component{
-  constructor() {
 
-  }
+/// @name Error404Component
+/// Error 404 page component
+export class Error404Component {
 
 }

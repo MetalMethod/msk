@@ -5,26 +5,22 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
     <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <button [routerLink]="['/artists/add']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" id="addArtistButton" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Add</button>
             </li>
         </ul>
-
         <form id="searchForm" (ngSubmit)="searchAll(searchTerm)" class="form-inline my-2 my-lg-0">
             <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control mr-sm-2" placeholder="Search" type="text">
             <button class="btn btn-secondary my-2 my-sm-0" data-toggle="modal" data-target="#searchResults" modal-trigger >Search</button>
         </form>
-        
         <div id="userInfo">
             <div *ngIf="auth.isLoggedIn()">
                 <a [routerLink]="['user/profile']" class="btn btn-link">{{auth.currentUser.userName}}</a>
                 <button id="cancelBtn" type="button" (click)="logout()" [routerLink]="['user/login']"  class="btn btn-outline-secondary" >logout</button>
             </div>
         </div>
-
     </div>
 </nav>
 

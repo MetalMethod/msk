@@ -5,11 +5,11 @@ import { Directive, OnInit, ElementRef } from '@angular/core';
 })
 
 /// @name ModalTriggerDirective
-/// Directive that triggers the modal window
+/// Directive for triggering the modal window 
 /// @implements {OnInit}
 export class ModalTriggerDirective implements OnInit {
 
-    /// element of html to trigger
+    /// element reference of the modal
     /// @private
     /// @type {HTMLElement}
     private el: HTMLElement;
@@ -21,7 +21,7 @@ export class ModalTriggerDirective implements OnInit {
     }
 
     /// @name ngOnInit
-    /// Initializes modal when click event is triggered
+    /// Initializes the directive, listens for the click event that triggers the modal display
     ngOnInit() {
         this.el.addEventListener('click', e => {
             $('#simpleModal').on('shown.bs.modal', function () {

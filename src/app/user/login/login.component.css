@@ -2,16 +2,12 @@
     margin-top: 30px;
 }
 
-
 #loginBtn{
     width: 342px;
-    /* width: 255px; */
 }
 
 #userName , #password{
     width: 342px;
-    /* width: 255px; */
-
 }
 
 .btn-outline-primary{margin-top: 10px;}
@@ -22,11 +18,9 @@
 
 em{ 
     font-size: 0.8em;
-    /* float: right; */
     color: #e44848;
     padding-left: 10px;
 }
-
 
 .error input {background-color: #e44848;}
 .error ::-webkit-input-placeholder { color: #e44848;}

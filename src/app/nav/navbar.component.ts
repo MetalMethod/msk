@@ -13,7 +13,7 @@ import { EventEmitter } from '@angular/core'
 })
 
 /// @name NavBarComponent
-/// the top navbar component
+/// The top navbar component
 @Injectable()
 export class NavBarComponent {
 
@@ -44,6 +44,5 @@ export class NavBarComponent {
     logout() {
         this.auth.logout();
     }
-
 
 }
