@@ -25,12 +25,13 @@ import { SimpleModalComponent } from './common/simple-modal/simple-modal.compone
 import { ModalTriggerDirective } from './common/simple-modal/modal-trigger.directive';
 
 //HTTP
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ArtistResolver } from './artists/artist-details/artist-resolver.service';
 import { CountriesService } from './artists/shared/countries/countries.service';
 
 //Async and Observables
 import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
+import { GlobalHttpInterceptor } from './common/globalHttpInterceptor.service';
 
 //Application specific components
 import { MskAppComponent } from './msk-app.component'
@@ -43,6 +44,7 @@ import {
     ArtistAddComponent,
     ArtistEditComponent
 } from './artists/index'
+import { CookiesService } from './common/cookies.service';
 
 @NgModule({
     imports: [
@@ -76,7 +78,9 @@ import {
         ToastrService,
         SimpleModalComponent,
         AuthGuard,
-        CountriesService
+        CountriesService,
+        {provide: HTTP_INTERCEPTORS , useClass: GlobalHttpInterceptor, multi:true},
+        CookiesService
     ],
     bootstrap: [MskAppComponent]
 })

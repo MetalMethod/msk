@@ -29,6 +29,12 @@ export class AuthService {
     ///# @type {boolean}
     private unauthorized: boolean = false;
 
+    private token: string = "";
+
+    public getToken(){
+        return this.token
+    }
+
     ///# @name getUnauthorized
     ///# returns unauthorized state
     ///# @public
@@ -65,6 +71,7 @@ export class AuthService {
         this.httpClient.post("http://localhost:3000/api/Users/login", userInfo, httpOptions).subscribe(
             (resp: Response) => {
                 if (resp['userId']) {
+                    this.token = resp['id']
                     this.loggedIn = true;
                     this.currentUser.id = resp['userId']
                     this.currentUser.userName = userName;
@@ -81,6 +88,7 @@ export class AuthService {
     ///# @name logout
     ///# logout the user
     logout() {
+        this.httpClient.post("http://localhost:3000/api/Users/logout", httpOptions).subscribe()
         this.loggedIn = false;
     }
 
