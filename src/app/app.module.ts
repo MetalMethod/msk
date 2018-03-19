@@ -1,36 +1,15 @@
 //imports of internal dependencies
 import { NgModule } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser' 
-
-//Application specific components
-import { MskAppComponent } from './msk-app.component'
-
-import { 
-    ArtistsListComponent,
-    ArtistThumbnailComponent,
-    ArtistDetailsComponent,
-    ArtistService,
-    ArtistAddComponent,
-    ArtistEditComponent
-    
-} from './artists/index'
-
-import { NavBarComponent } from './nav/navbar.component';
+import { BrowserModule } from '@angular/platform-browser'
 
 //TOASTR
 import { ToastrService, ToastrModule } from 'ngx-toastr';
-
-// import { TOASTR_TOKEN, ToastrNgService } from './common/toastr.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Routes
 import { appRoutes } from './routes';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './errors/404.component';
-//import { ArtistRouteActivatorService } from './artists/shared/artist-route-activator.service';
-
-//Async and Observables
-import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
 
 //User and Authentication
 import { AuthService } from './user/auth/auth.service';
@@ -45,28 +24,41 @@ import { SimpleModalComponent } from './common/simple-modal/simple-modal.compone
 import { ModalTriggerDirective } from './common/simple-modal/modal-trigger.directive';
 
 //HTTP
-// DEPRECATED import { HttpModule } from '@angular/http';
 import { HttpClientModule } from "@angular/common/http";
 import { ArtistResolver } from './artists/artist-details/artist-resolver.service';
 import { CountriesService } from './artists/shared/countries/countries.service';
 
+//Async and Observables
+import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
+
+//Application specific components
+import { MskAppComponent } from './msk-app.component'
+import { NavBarComponent } from './nav/navbar.component';
+import {
+    ArtistsListComponent,
+    ArtistThumbnailComponent,
+    ArtistDetailsComponent,
+    ArtistService,
+    ArtistAddComponent,
+    ArtistEditComponent
+} from './artists/index'
+
 @NgModule({
     imports: [
         BrowserModule,
-        // RouterModule.forRoot(appRoutes, {enableTracing: true})
         RouterModule.forRoot(appRoutes),
         UserModule,
         FormsModule,
         ReactiveFormsModule,
         ToastrModule.forRoot(),
         BrowserAnimationsModule,
-       HttpClientModule
-        ],
+        HttpClientModule
+    ],
     declarations: [
-        MskAppComponent, 
-        ArtistsListComponent, 
-        ArtistThumbnailComponent, 
-        ArtistDetailsComponent, 
+        MskAppComponent,
+        ArtistsListComponent,
+        ArtistThumbnailComponent,
+        ArtistDetailsComponent,
         NavBarComponent,
         ArtistAddComponent,
         ArtistEditComponent,
@@ -76,10 +68,9 @@ import { CountriesService } from './artists/shared/countries/countries.service';
     ],
     providers: [
         ArtistService,
-       // ArtistRouteActivatorService,
         ArtistResolver,
         ArtistsListResolver,
-        {provide: 'canDeactivateAddArtist', useValue: checkDirtyState},
+        { provide: 'canDeactivateAddArtist', useValue: checkDirtyState },
         AuthService,
         ToastrService,
         SimpleModalComponent,
@@ -89,12 +80,15 @@ import { CountriesService } from './artists/shared/countries/countries.service';
     ],
     bootstrap: [MskAppComponent]
 })
-export class AppModule{
-    
+
+/// @name AppModule
+/// Main module for this app
+export class AppModule {
 }
 
-function checkDirtyState(component:ArtistAddComponent){
-    if(component.isDirty)
+// temporary function to display alert when form page is left without submit data
+function checkDirtyState(component: ArtistAddComponent) {
+    if (component.isDirty)
         return window.confirm('You have not added this artist yet, do you really want to cancel?')
     return true
 }
