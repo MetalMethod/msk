@@ -1,10 +1,13 @@
+import { catchError } from 'rxjs/operators';
 import { AuthService } from './../user/auth/auth.service';
 import { Injectable, Injector } from '@angular/core';
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpResponse, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/throw'
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
 import { Router } from '@angular/router';
+import { CookiesService } from './cookies.service';
 
 @Injectable()
 
@@ -14,10 +17,11 @@ import { Router } from '@angular/router';
 /// @implements {HttpInterceptor}
 export class GlobalHttpInterceptor implements HttpInterceptor {
 
+    private authorization: string;
     /// Creates an instance of GlobalHttpInterceptor.
     /// @param {AuthService} auth - 
     /// @param {Router} router - 
-    constructor(private auth: AuthService, private router: Router) { }
+    constructor(private auth: AuthService, private router: Router, private cookies: CookiesService) { }
 
     /// @name intercept
     /// Action for intercepting Http requests
@@ -26,26 +30,28 @@ export class GlobalHttpInterceptor implements HttpInterceptor {
     /// @returns {{Observable<HttpEvent<any>>}} 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        console.log("intercepted request ");
-
-        //read the token from storage
-        const Authorization = this.auth.getToken();
+        if (this.cookies.getTokenCookie() == "" || !this.cookies.checkTokenCookie()) {
+            //read the token from response of a new login
+            this.authorization = this.auth.getToken();
+            // saves the Token to a cookie
+            //this.cookies.setTokenCookie(this.authorization)
+        } else {
+            this.cookies.deleteAll()
+            //get Token from stored cookie
+            //this.authorization = this.cookies.getTokenCookie()
+            
+            //console.log(this.authorization)
+            this.authorization = this.auth.getToken();
+        }
 
         // Clone the request to add the authorization header.
-        const authReq = req.clone({ headers: req.headers.set('authorization', Authorization) });
+        const authReq = req.clone({ headers: req.headers.set('authorization', this.authorization) });
 
         // Pass on the cloned request instead of the original request.
         return next.handle(authReq)
             .catch((error, caught) => {
-                if (error.status === 401) {
-
-                    //logout users, redirect to login page
-                    this.auth.logout();
-
-                    return Observable.throw(error);
-                } else {
-                    return Observable.throw(error);
-                }
+                return Observable.throw(error);
             }) as any;
+
     }
 }

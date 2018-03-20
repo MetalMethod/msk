@@ -5,8 +5,11 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
-
 @Injectable()
+/// @name CookiesService
+/// 
+/// 
+/// @implements {OnInit}
 
 export class CookiesService implements OnInit {
 
@@ -16,15 +19,19 @@ export class CookiesService implements OnInit {
         
     }
 
-    checkTokenCookie():boolean{
+    public checkTokenCookie():boolean{
         return this.cookieService.check('token');
     }
 
-    getTokenCookie(){
+    public getTokenCookie(){
         return this.cookieService.get('token')
     }
 
-    setTokenCookie(token){
+    public setTokenCookie(token){
         this.cookieService.set('token', token)
+    }
+    
+    public deleteAll(){
+        this.cookieService.deleteAll()
     }
 }

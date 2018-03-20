@@ -42,7 +42,8 @@ import {
     ArtistService,
     ArtistAddComponent,
     ArtistEditComponent
-} from './artists/index'
+} from './artists/index';
+import { CookieService } from 'ngx-cookie-service';
 import { CookiesService } from './common/cookies.service';
 
 import * as $ from 'jquery';
@@ -80,6 +81,7 @@ import * as $ from 'jquery';
         AuthGuard,
         CountriesService,
         {provide: HTTP_INTERCEPTORS , useClass: GlobalHttpInterceptor, multi:true},
+        CookieService,
         CookiesService
     ],
     bootstrap: [MskAppComponent]

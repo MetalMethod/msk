@@ -1,3 +1,5 @@
+import { CookiesService } from './../../common/cookies.service';
+import { catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { IUser } from './user.model';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -43,6 +45,10 @@ export class AuthService {
         return this.unauthorized;
     }
 
+    public setUnauthorized(){
+        this.unauthorized = true;
+    }
+
     ///# @name isLoggedIn
     ///# returns user state
     ///# @public
@@ -54,7 +60,7 @@ export class AuthService {
     ///# Creates an instance of AuthService.
     ///# @param {Router} router - 
     ///# @param {HttpClient} httpClient - 
-    constructor(private router: Router, private httpClient: HttpClient) {
+    constructor(private router: Router, private httpClient: HttpClient, private cookies: CookiesService) {
         this.currentUser = {}
     }
 
@@ -63,6 +69,7 @@ export class AuthService {
     ///# @param {string} userName - the username from the login form
     ///# @param {string} password - the password from the login form
     login(userName: string, password: string) {
+        this.unauthorized = false
         
         /// builds the required body of server call cointaing a object with username and pass
         let userInfo = "\{\"username\":\"" + userName.toString() + "\"\, \"password\"\:\"" + password.toString() + "\"\}";
@@ -75,12 +82,14 @@ export class AuthService {
                     this.loggedIn = true;
                     this.currentUser.id = resp['userId']
                     this.currentUser.userName = userName;
-                    this.unauthorized = false
                     this.router.navigate(['artists'])
                 }
-            },
+            }
+            ,
             (resp: HttpErrorResponse) => {
-                this.unauthorized = true;
+                if(resp.status == 401){
+                    this.unauthorized = true
+                }
             }
         )
     }
@@ -89,6 +98,7 @@ export class AuthService {
     ///# logout the user
     logout() {
         this.httpClient.post("http://localhost:3000/api/Users/logout", httpOptions).subscribe()
+        this.cookies.deleteAll();
         this.loggedIn = false;
     }
 
