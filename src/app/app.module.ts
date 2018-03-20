@@ -43,6 +43,7 @@ import {
     ArtistAddComponent,
     ArtistEditComponent
 } from './artists/index'
+import * as $ from 'jquery';
 
 @NgModule({
     imports: [
