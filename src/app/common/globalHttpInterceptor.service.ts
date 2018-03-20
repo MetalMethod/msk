@@ -6,11 +6,24 @@ import 'rxjs/add/observable/throw'
 import 'rxjs/add/operator/catch';
 import { Router } from '@angular/router';
 
-
 @Injectable()
+
+/// @name GlobalHttpInterceptor
+/// This classes intercepts ALL outgoing Http requests, 
+/// then clones them, add the login Token to the header and send those clones
+/// @implements {HttpInterceptor}
 export class GlobalHttpInterceptor implements HttpInterceptor {
+
+    /// Creates an instance of GlobalHttpInterceptor.
+    /// @param {AuthService} auth - 
+    /// @param {Router} router - 
     constructor(private auth: AuthService, private router: Router) { }
 
+    /// @name intercept
+    /// Action for intercepting Http requests
+    /// @param {HttpRequest<any>} req - the request to intercept
+    /// @param {HttpHandler} next - the result request handler 
+    /// @returns {{Observable<HttpEvent<any>>}} 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         console.log("intercepted request ");
