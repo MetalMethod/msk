@@ -30,7 +30,6 @@ import { ArtistResolver } from './artists/artist-details/artist-resolver.service
 import { CountriesService } from './artists/shared/countries/countries.service';
 
 //Async and Observables
-import { ArtistsListResolver } from './artists/artists-list/artists-list.resolver.service'
 import { GlobalHttpInterceptor } from './common/globalHttpInterceptor.service';
 
 //Application specific components
@@ -45,6 +44,8 @@ import {
     ArtistEditComponent
 } from './artists/index'
 import { CookiesService } from './common/cookies.service';
+
+import * as $ from 'jquery';
 
 @NgModule({
     imports: [
@@ -72,7 +73,6 @@ import { CookiesService } from './common/cookies.service';
     providers: [
         ArtistService,
         ArtistResolver,
-        ArtistsListResolver,
         ErrorResolver,
         AuthService,
         ToastrService,

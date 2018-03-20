@@ -76,6 +76,7 @@ export class ArtistAddComponent implements OnInit {
     /// @name cancel
     /// Action for the cancel button
     cancel() {
+        this.modal.closeModal();
         this.router.navigate(['/artists'])
     }
 

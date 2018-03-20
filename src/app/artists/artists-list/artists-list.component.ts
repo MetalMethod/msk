@@ -46,7 +46,6 @@ export class ArtistsListComponent implements OnInit {
     }
 }
 
-
 ///Auxiliary Functions
 
 /// @name sortByDateAsc

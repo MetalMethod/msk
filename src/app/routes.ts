@@ -9,17 +9,17 @@ import {
     ArtistsListComponent,
     ArtistDetailsComponent,
     ArtistAddComponent,
-    ArtistsListResolver,
     ArtistEditComponent
 } from './artists/index'
 
 // Routes for app module
+// Error URL: uses ** and must be the last route is this array so it catches any error AFTER all other routes.
 export const appRoutes: Routes = [
     { path: 'artists/add', component: ArtistAddComponent, canActivate: [AuthGuard] },
-    { path: 'artists', component: ArtistsListComponent, resolve: { artists: ArtistsListResolver }, canActivate: [AuthGuard] },
+    { path: 'artists', component: ArtistsListComponent, canActivate: [AuthGuard] },
     { path: 'artists/:id', component: ArtistDetailsComponent, resolve: { artist: ArtistResolver }, canActivate: [AuthGuard] },
     { path: 'artists/:id/edit', component: ArtistEditComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: 'user/login', pathMatch: 'full', canActivate: [AuthGuard] },
     { path: 'user', component: UserModule, canActivate: [AuthGuard] },
-    { path: '**', resolve:{ ErrorResolver} ,  redirectTo:'artists'} // Error URL: must be the last route so it catches any error AFTER all other routes.
+    { path: '**', resolve:{ ErrorResolver} ,  redirectTo:'artists'} 
 ]
