@@ -17,7 +17,11 @@ import { CookiesService } from './cookies.service';
 /// @implements {HttpInterceptor}
 export class GlobalHttpInterceptor implements HttpInterceptor {
 
+    /// String that stores the auth token
+    /// @private
+    /// @type {string}
     private authorization: string;
+
     /// Creates an instance of GlobalHttpInterceptor.
     /// @param {AuthService} auth - 
     /// @param {Router} router - 
@@ -34,14 +38,14 @@ export class GlobalHttpInterceptor implements HttpInterceptor {
             //read the token from response of a new login
             this.authorization = this.auth.getToken();
             // saves the Token to a cookie
-            //this.cookies.setTokenCookie(this.authorization)
-        } else {
             this.cookies.deleteAll()
+            this.cookies.setTokenCookie(this.authorization)
+        } else {
             //get Token from stored cookie
-            //this.authorization = this.cookies.getTokenCookie()
+            let temp = this.cookies.getTokenCookie()
             
-            //console.log(this.authorization)
-            this.authorization = this.auth.getToken();
+            console.log(temp)
+            //this.authorization = this.auth.getToken();
         }
 
         // Clone the request to add the authorization header.

@@ -31,20 +31,30 @@ export class AuthService {
     ///# @type {boolean}
     private unauthorized: boolean = false;
 
+    ///# String that stores the auth token
+    ///# @private
+    ///# @type {string}
     private token: string = "";
 
+    ///# @name getToken
+    ///# Returns the saved token
+    ///# @public
+    ///# @returns {any} - 
     public getToken(){
         return this.token
     }
 
     ///# @name getUnauthorized
-    ///# returns unauthorized state
+    ///# returns unauthorized state for form validation messages
     ///# @public
     ///# @returns {any} - 
     public getUnauthorized() {
         return this.unauthorized;
     }
 
+    ///# @name setUnauthorized
+    ///# sets the unauthorized state for form validation messages
+    ///# @public
     public setUnauthorized(){
         this.unauthorized = true;
     }
@@ -84,8 +94,7 @@ export class AuthService {
                     this.currentUser.userName = userName;
                     this.router.navigate(['artists'])
                 }
-            }
-            ,
+            },
             (resp: HttpErrorResponse) => {
                 if(resp.status == 401){
                     this.unauthorized = true
@@ -100,6 +109,7 @@ export class AuthService {
         this.httpClient.post("http://localhost:3000/api/Users/logout", httpOptions).subscribe()
         this.cookies.deleteAll();
         this.loggedIn = false;
+        this.token = "";
     }
 
     ///# @name updateCurrentUser

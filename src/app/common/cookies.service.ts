@@ -28,7 +28,7 @@ export class CookiesService implements OnInit {
     }
 
     /// @name getTokenCookie
-    /// Retrieves the saved cookie with auth token
+    /// Retrieves the token from the cookie saved on login
     /// @public
     /// @returns {any} - 
     public getTokenCookie() {
