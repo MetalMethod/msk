@@ -42,10 +42,7 @@ export class GlobalHttpInterceptor implements HttpInterceptor {
             this.cookies.setTokenCookie(this.authorization)
         } else {
             //get Token from stored cookie
-            let temp = this.cookies.getTokenCookie()
-            
-            console.log(temp)
-            //this.authorization = this.auth.getToken();
+            this.authorization = this.auth.getToken();
         }
 
         // Clone the request to add the authorization header.

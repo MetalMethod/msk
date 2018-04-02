@@ -39,7 +39,7 @@ export class ArtistDetailsComponent implements OnInit {
     /// Action for the edit button
     editDetails() {
         this.artistService.setArtistToUpdate(this.artist)
-        this.router.navigate(['/artists' + '/' + this.artist.id.toString() + '/edit'])
+        this.router.navigate(['/artists', this.artist.id.toString(), 'edit'])
     }
 
     /// @name deleteArtist

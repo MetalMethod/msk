@@ -51,13 +51,13 @@ import * as $ from 'jquery';
 @NgModule({
     imports: [
         BrowserModule,
-        RouterModule.forRoot(appRoutes),
+        HttpClientModule,
         UserModule,
         FormsModule,
         ReactiveFormsModule,
         ToastrModule.forRoot(),
         BrowserAnimationsModule,
-        HttpClientModule
+        RouterModule.forRoot(appRoutes),
     ],
     declarations: [
         MskAppComponent,
