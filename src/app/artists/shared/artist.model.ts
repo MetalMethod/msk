@@ -5,14 +5,10 @@ export interface IArtist{
     genre: string
     description?: string
     country?: string
-    imageUrl?: string
-    link?: string
-    songs? :{
-        song1?: string
-        song2?: string
-    }
     album?: string
     user: string
+    bestSong: String
+    secondBestString: String
     dateAdded: Date
 }
 

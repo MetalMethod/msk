@@ -22,7 +22,9 @@ export class ArtistsListComponent implements OnInit {
     /// Creates an instance of ArtistsListComponent.
     /// @param {ArtistService} artistService - 
     /// @param {ActivatedRoute} route - 
-    constructor(private artistService: ArtistService, private route: ActivatedRoute) {
+    constructor(private artistService: ArtistService
+      //, private route: ActivatedRoute
+    ) {
     }
 
     //event called when the component is first loaded

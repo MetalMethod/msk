@@ -51,11 +51,11 @@ export class ArtistEditComponent {
         if (this.artist.country === null || this.artist.country === undefined) this.artist.country = ''
         if (this.artist.album === null || this.artist.album === undefined) this.artist.album = ''
         if (this.artist.description === null || this.artist.description === undefined) this.artist.description = ''
-        if (this.artist.link === null || this.artist.link === undefined) this.artist.link = ''
+        // if (this.artist.link === null || this.artist.link === undefined) this.artist.link = ''
 
-        if (this.artist.songs === null || this.artist.songs === undefined) {
-            this.artist.songs = { song1: '', song2: '' }
-        }
+        // if (this.artist.songs === null || this.artist.songs === undefined) {
+        //     this.artist.songs = { song1: '', song2: '' }
+        //}
     }
 
     /// @name getCountries

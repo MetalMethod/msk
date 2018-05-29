@@ -35,7 +35,7 @@ export class ArtistService {
     /// Calls server and gets data for all artists
     /// @returns {{Observable<IArtist[]>}} - observable with list of all artists
     getArtists(): Observable<IArtist[]> {
-        return this.httpClient.get<IArtist[]>("http://localhost:3000/api/artists")
+        return this.httpClient.get<IArtist[]>("http://localhost:3080/api/artists")
     }
 
     /// @name getArtist
@@ -43,7 +43,7 @@ export class ArtistService {
     /// @param {string} id - 
     /// @returns {{Observable<IArtist>}} - observable with single artist data
     getArtist(id: string): Observable<IArtist> {
-        return this.httpClient.get<IArtist>("http://localhost:3000/api/artists" + "/" + id.toString())
+        return this.httpClient.get<IArtist>("http://localhost:3080/api/artists" + "/" + id.toString())
     }
 
     /// @name saveArtist
@@ -51,7 +51,7 @@ export class ArtistService {
     /// @param {any} formValues - values from form
     saveArtist(formValues) {
         formValues.user = "user1"
-        return this.httpClient.post<IArtist>("http://localhost:3000/api/artists", formValues, httpOptions)
+        return this.httpClient.post<IArtist>("http://localhost:3080/api/artists", formValues, httpOptions)
     }
 
     /// @name handleError
@@ -78,12 +78,11 @@ export class ArtistService {
         this.artistToUpdate.genre = formValues.genre;
         this.artistToUpdate.description = formValues.description;
         this.artistToUpdate.country = formValues.country;
-        this.artistToUpdate.link = formValues.link;
         this.artistToUpdate.album = formValues.album;
 
-        if (formValues.songs) this.artistToUpdate.songs = formValues.songs;
+        //if (formValues.songs) this.artistToUpdate.songs = formValues.songs;
 
-        return this.httpClient.put<IArtist>("http://localhost:3000/api/artists" + "/" + id.toString(), this.artistToUpdate, httpOptions);
+        return this.httpClient.put<IArtist>("http://localhost:3080/api/artists" + "/" + id.toString(), this.artistToUpdate, httpOptions);
     }
 
     /// @name setArtistToUpdate
@@ -103,7 +102,7 @@ export class ArtistService {
     /// Calls the server and deletes the artist using id
     /// @param {any} id - 
     deleteArtist(id) {
-        return this.httpClient.delete<IArtist>("http://localhost:3000/api/artists/" + "/" + id.toString(), httpOptions);
+        return this.httpClient.delete<IArtist>("http://localhost:3080/api/artists/" + "/" + id.toString(), httpOptions);
     }
 
     /// @name searchAll
@@ -131,13 +130,13 @@ export class ArtistService {
                 if (artist['album'].toLocaleLowerCase().indexOf(term) > -1) { return true };
             }
 
-            if (artist.songs && artist.songs.song1) {
-                if (artist.songs['song1'].toLocaleLowerCase().indexOf(term) > -1) { return true };
-            }
+            // if (artist.songs && artist.songs.song1) {
+            //     if (artist.songs['song1'].toLocaleLowerCase().indexOf(term) > -1) { return true };
+            // }
 
-            if (artist.songs && artist.songs.song2) {
-                if (artist.songs['song2'].toLocaleLowerCase().indexOf(term) > -1) { return true };
-            }
+            // if (artist.songs && artist.songs.song2) {
+            //     if (artist.songs['song2'].toLocaleLowerCase().indexOf(term) > -1) { return true };
+            // }
         });
         return result;
     }
